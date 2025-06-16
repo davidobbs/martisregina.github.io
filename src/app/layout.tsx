@@ -1,11 +1,14 @@
 import '@/css/globals.css';
 import { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import SEOOptimization from '@/components/SEOOptimization';
 import { LanguageProvider } from '@/context/LanguageContext';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
+  variable: '--font-roboto',
+});
 
 export const metadata: Metadata = {
   title: 'Martins Regina Advocacia | Planejamento Patrimonial, Negócios e Contratos',
@@ -19,12 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="pt-BR" className={roboto.variable}>
       <head>
         <SEOOptimization />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" />
       </head>
-      <body className={inter.className}>
+      <body>
         <LanguageProvider>
           {children}
         </LanguageProvider>
