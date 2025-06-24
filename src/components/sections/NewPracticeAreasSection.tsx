@@ -20,6 +20,16 @@ export default function NewPracticeAreasSection() {
   const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
   const { currentLanguage } = useLanguage();
 
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerHeight = 80;
+      const pos = el.getBoundingClientRect().top;
+      const offset = pos + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  };
+
   const content = currentLanguage === 'PT' ? {
     title: 'Áreas de Atuação',
     subtitle: 'Soluções jurídicas especializadas para pessoas físicas e jurídicas',
@@ -36,7 +46,7 @@ export default function NewPracticeAreasSection() {
           features: ['Inventários', 'Testamentos', 'Holdings Familiares', 'Blindagem Patrimonial'],
           icon: '📝',
           detailedContent: `
-            <div class="space-y-6">
+            <div class="space-y-4">
               <div class="bg-gray-50 p-4 rounded-lg">
                 <div class="text-center">
                   <div class="text-2xl font-bold text-mr-bordo">90%</div>
@@ -44,7 +54,7 @@ export default function NewPracticeAreasSection() {
                 </div>
               </div>
               <div>
-                <h4 class="font-semibold text-mr-bordo mb-4">Serviços Especializados:</h4>
+                <h4 class="font-semibold text-mr-bordo mb-3">Serviços Especializados:</h4>
                 <ul class="space-y-2 text-sm">
                   <li class="flex items-start gap-2">
                     <span class="text-mr-bordo mt-1">•</span>
@@ -72,7 +82,38 @@ export default function NewPracticeAreasSection() {
           title: 'Direito de Família',
           description: 'Orientação especializada em questões familiares com foco na preservação de relacionamentos.',
           features: ['Divórcios', 'Pensão Alimentícia', 'Guarda de Filhos', 'Pactos Antenupciais'],
-          icon: '👪'
+          icon: '👪',
+          detailedContent: `
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-mr-bordo">73%</div>
+                  <div class="text-sm text-gray-600">dos casamentos no Brasil terminam em divórcio consensual</div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-mr-bordo mb-3">Serviços Principais:</h4>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Divórcios consensuais e litigiosos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Pensão alimentícia e revisional</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Guarda compartilhada e unilateral</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Pactos antenupciais e união estável</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          `
         },
         {
           id: 'tributario-pf',
@@ -101,6 +142,41 @@ export default function NewPracticeAreasSection() {
           description: 'Conformidade com LGPD e proteção da privacidade digital pessoal.',
           features: ['LGPD', 'Privacidade', 'Dados Pessoais', 'Direitos Digitais'],
           icon: '🔒'
+        },
+        {
+          id: 'direito-do-consumidor',
+          title: 'Direito do Consumidor',
+          description: 'Proteção dos direitos dos consumidores em disputas judiciais e administrativas.',
+          features: ['Ações Individuais', 'Ações Coletivas', 'Defesas PROCON'],
+          icon: '🛒'
+        },
+        {
+          id: 'direito-desportivo',
+          title: 'Direito Desportivo',
+          description: 'Assessoria jurídica para entidades e atletas no âmbito esportivo.',
+          features: ['Contratos de Atletas', 'Direitos de Imagem'],
+          icon: '🏅'
+        },
+        {
+          id: 'direito-constitucional',
+          title: 'Direito Constitucional',
+          description: 'Defesa de direitos fundamentais e controle de constitucionalidade.',
+          features: ['Mandado de Segurança', 'Ações Diretas de Inconstitucionalidade'],
+          icon: '🗳️'
+        },
+        {
+          id: 'contencioso',
+          title: 'Contencioso',
+          description: 'Atuação em processos judiciais e administrativos em diversas áreas.',
+          features: ['Litígios Cíveis', 'Litígios Trabalhistas', 'Litígios Tributários'],
+          icon: '⚖️'
+        },
+        {
+          id: 'pro-bono',
+          title: 'Pro Bono',
+          description: 'Atendimento jurídico gratuito a causas de interesse social.',
+          features: ['Assessoria Comunitária', 'Defesa de Direitos Humanos'],
+          icon: '🤝'
         }
       ],
       pj: [
@@ -111,7 +187,7 @@ export default function NewPracticeAreasSection() {
           features: ['Constituição', 'Governança', 'Compliance', 'Reestruturações'],
           icon: '🏢',
           detailedContent: `
-            <div class="space-y-6">
+            <div class="space-y-4">
               <div class="bg-gray-50 p-4 rounded-lg">
                 <div class="text-center">
                   <div class="text-2xl font-bold text-mr-bordo">500+</div>
@@ -119,7 +195,7 @@ export default function NewPracticeAreasSection() {
                 </div>
               </div>
               <div>
-                <h4 class="font-semibold text-mr-bordo mb-4">Serviços Especializados:</h4>
+                <h4 class="font-semibold text-mr-bordo mb-3">Serviços Especializados:</h4>
                 <ul class="space-y-2 text-sm">
                   <li class="flex items-start gap-2">
                     <span class="text-mr-bordo mt-1">•</span>
@@ -163,7 +239,7 @@ export default function NewPracticeAreasSection() {
           features: ['Elisão Fiscal', 'Autuações', 'Parcelamentos', 'Recursos'],
           icon: '💰',
           detailedContent: `
-            <div class="space-y-6">
+            <div class="space-y-4">
               <div class="bg-gray-50 p-4 rounded-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                   <div>
@@ -177,7 +253,7 @@ export default function NewPracticeAreasSection() {
                 </div>
               </div>
               <div>
-                <h4 class="font-semibold text-mr-bordo mb-4">Serviços Especializados:</h4>
+                <h4 class="font-semibold text-mr-bordo mb-3">Serviços Especializados:</h4>
                 <ul class="space-y-2 text-sm">
                   <li class="flex items-start gap-2">
                     <span class="text-mr-bordo mt-1">•</span>
@@ -227,6 +303,27 @@ export default function NewPracticeAreasSection() {
           description: 'Soluções para empresas em dificuldade financeira e reestruturação de dívidas.',
           features: ['Recuperação Judicial', 'Falências', 'Acordos', 'Reestruturação'],
           icon: '📈'
+        },
+        {
+          id: 'life-sciences',
+          title: 'Direito Médico, da Saúde e Life Sciences',
+          description: 'Assessoria jurídica especializada para o setor de ciências da vida e saúde.',
+          features: ['Regulatório', 'Contratos de Pesquisa', 'Compliance Farmacêutico'],
+          icon: '⚕️'
+        },
+        {
+          id: 'compliance',
+          title: 'Compliance',
+          description: 'Programas de compliance e governança corporativa.',
+          features: ['Programas Anticorrupção', 'Due Diligence', 'Treinamentos'],
+          icon: '✅'
+        },
+        {
+          id: 'contencioso-empresarial',
+          title: 'Contencioso Empresarial',
+          description: 'Defesa em litígios empresariais e arbitragem.',
+          features: ['Arbitragem', 'Litígios Comerciais'],
+          icon: '⚖️'
         }
       ]
     }
@@ -244,14 +341,76 @@ export default function NewPracticeAreasSection() {
           title: 'Estate Planning',
           description: 'Structuring inheritances and wealth succession with tax efficiency and family protection.',
           features: ['Probate', 'Wills', 'Family Holdings', 'Asset Protection'],
-          icon: '📝'
+          icon: '📝',
+          detailedContent: `
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-mr-bordo">90%</div>
+                  <div class="text-sm text-gray-600">of companies in Brazil are born as family businesses</div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-mr-bordo mb-3">Specialized Services:</h4>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Family and asset holdings</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Strategic wills and donations</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Asset protection</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Judicial and extrajudicial probate</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          `
         },
         {
           id: 'family-law',
           title: 'Family Law',
           description: 'Specialized guidance on family matters focusing on relationship preservation.',
           features: ['Divorce', 'Alimony', 'Child Custody', 'Prenuptial Agreements'],
-          icon: '👪'
+          icon: '👪',
+          detailedContent: `
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-mr-bordo">73%</div>
+                  <div class="text-sm text-gray-600">of marriages in Brazil end in consensual divorce</div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-mr-bordo mb-3">Main Services:</h4>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Consensual and litigious divorces</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Alimony and revision proceedings</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Shared and sole custody</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Prenuptial agreements and civil unions</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          `
         },
         {
           id: 'personal-tax',
@@ -280,6 +439,41 @@ export default function NewPracticeAreasSection() {
           description: 'LGPD compliance and personal digital privacy protection.',
           features: ['LGPD', 'Privacy', 'Personal Data', 'Digital Rights'],
           icon: '🔒'
+        },
+        {
+          id: 'direito-do-consumidor',
+          title: 'Direito do Consumidor',
+          description: 'Proteção dos direitos dos consumidores em disputas judiciais e administrativas.',
+          features: ['Ações Individuais', 'Ações Coletivas', 'Defesas PROCON'],
+          icon: '🛒'
+        },
+        {
+          id: 'direito-desportivo',
+          title: 'Direito Desportivo',
+          description: 'Assessoria jurídica para entidades e atletas no âmbito esportivo.',
+          features: ['Contratos de Atletas', 'Direitos de Imagem'],
+          icon: '🏅'
+        },
+        {
+          id: 'direito-constitucional',
+          title: 'Direito Constitucional',
+          description: 'Defesa de direitos fundamentais e controle de constitucionalidade.',
+          features: ['Mandado de Segurança', 'Ações Diretas de Inconstitucionalidade'],
+          icon: '🗳️'
+        },
+        {
+          id: 'contencioso',
+          title: 'Contencioso',
+          description: 'Atuação em processos judiciais e administrativos em diversas áreas.',
+          features: ['Litígios Cíveis', 'Litígios Trabalhistas', 'Litígios Tributários'],
+          icon: '⚖️'
+        },
+        {
+          id: 'pro-bono',
+          title: 'Pro Bono',
+          description: 'Atendimento jurídico gratuito a causas de interesse social.',
+          features: ['Assessoria Comunitária', 'Defesa de Direitos Humanos'],
+          icon: '🤝'
         }
       ],
       pj: [
@@ -288,7 +482,38 @@ export default function NewPracticeAreasSection() {
           title: 'Corporate Law',
           description: 'Structuring and complete advisory for companies of all sizes and segments.',
           features: ['Incorporation', 'Governance', 'Compliance', 'Restructuring'],
-          icon: '🏢'
+          icon: '🏢',
+          detailedContent: `
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-mr-bordo">500+</div>
+                  <div class="text-sm text-gray-600">companies incorporated with our advisory</div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-mr-bordo mb-3">Specialized Services:</h4>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Business entity incorporation</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Corporate governance</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Compliance programs</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Corporate restructuring</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          `
         },
         {
           id: 'corporate-contracts',
@@ -309,7 +534,44 @@ export default function NewPracticeAreasSection() {
           title: 'Tax Law',
           description: 'Strategic tax planning and defense in administrative proceedings.',
           features: ['Tax Planning', 'Assessments', 'Installments', 'Appeals'],
-          icon: '💰'
+          icon: '💰',
+          detailedContent: `
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                  <div>
+                    <div class="text-2xl font-bold text-mr-bordo">403,322</div>
+                    <div class="text-sm text-gray-600">tax laws enacted in Brazil since 1988</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-mr-bordo">35.17%</div>
+                    <div class="text-sm text-gray-600">of GDP is Brazil's tax burden</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-mr-bordo mb-3">Specialized Services:</h4>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Strategic tax planning</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Defense in tax assessments</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Administrative appeals</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-mr-bordo mt-1">•</span>
+                    <span>Transfer pricing</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          `
         },
         {
           id: 'labor-law',
@@ -338,6 +600,27 @@ export default function NewPracticeAreasSection() {
           description: 'Solutions for companies in financial distress and debt restructuring.',
           features: ['Judicial Recovery', 'Bankruptcy', 'Agreements', 'Restructuring'],
           icon: '📈'
+        },
+        {
+          id: 'life-sciences',
+          title: 'Direito Médico, da Saúde e Life Sciences',
+          description: 'Assessoria jurídica especializada para o setor de ciências da vida e saúde.',
+          features: ['Regulatório', 'Contratos de Pesquisa', 'Compliance Farmacêutico'],
+          icon: '⚕️'
+        },
+        {
+          id: 'compliance',
+          title: 'Compliance',
+          description: 'Programas de compliance e governança corporativa.',
+          features: ['Programas Anticorrupção', 'Due Diligence', 'Treinamentos'],
+          icon: '✅'
+        },
+        {
+          id: 'contencioso-empresarial',
+          title: 'Contencioso Empresarial',
+          description: 'Defesa em litígios empresariais e arbitragem.',
+          features: ['Arbitragem', 'Litígios Comerciais'],
+          icon: '⚖️'
         }
       ]
     }
@@ -359,10 +642,10 @@ export default function NewPracticeAreasSection() {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-full p-2 shadow-lg border border-gray-200">
+          <div className="bg-white rounded-full p-2 shadow-lg border border-gray-200 flex w-[90%] max-w-md">
             <button
               onClick={() => setActiveTab('pj')}
-              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`flex-1 py-3 px-2 rounded-full font-semibold transition-all duration-300 text-base sm:text-lg ${
                 activeTab === 'pj'
                   ? 'bg-mr-bordo text-white shadow-md'
                   : 'text-gray-600 hover:text-gray-900'
@@ -372,7 +655,7 @@ export default function NewPracticeAreasSection() {
             </button>
             <button
               onClick={() => setActiveTab('pf')}
-              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`flex-1 py-3 px-2 rounded-full font-semibold transition-all duration-300 text-base sm:text-lg ${
                 activeTab === 'pf'
                   ? 'bg-mr-bordo text-white shadow-md'
                   : 'text-gray-600 hover:text-gray-900'
@@ -384,63 +667,132 @@ export default function NewPracticeAreasSection() {
         </div>
 
         {/* Areas Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {content.areas[activeTab].map((area, index) => (
-            <div
-              key={index}
-              onClick={() => setSelectedArea(area)}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group cursor-pointer relative overflow-hidden"
-            >
-              <div className="h-full flex flex-col relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {area.icon}
-                  </span>
+        <div className="relative">
+          {/* Desktop Grid */}
+          <div className={`hidden md:grid md:grid-cols-2 gap-6 w-full ${
+            activeTab === 'pf' ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
+          }`}>
+            {content.areas[activeTab].map((area, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedArea(area)}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group cursor-pointer relative overflow-hidden"
+              >
+                <div className="h-full flex flex-col relative z-10">
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                      {area.icon}
+                    </span>
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-mr-bordo transition-colors duration-300">
+                      {area.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                      {area.description}
+                    </p>
+                  </div>
+
+                  <div className="border-t border-gray-100 pt-4">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {area.features.slice(0, 3).map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-gray-50 text-gray-700 px-3 py-1 rounded-full text-xs font-medium group-hover:bg-mr-bordo/10 group-hover:text-mr-bordo transition-colors duration-300"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                      {area.features.length > 3 && (
+                        <span className="text-gray-400 text-xs font-medium px-3 py-1">
+                          +{area.features.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    
+                    <div className="text-mr-bordo text-sm font-medium group-hover:underline flex items-center gap-1">
+                      {currentLanguage === 'PT' ? 'Clique para detalhes' : 'Click for details'}
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-mr-bordo transition-colors duration-300">
-                    {area.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-4 text-sm">
-                    {area.description}
-                  </p>
-                </div>
-
-                <div className="border-t border-gray-100 pt-4">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {area.features.slice(0, 3).map((feature, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-gray-50 text-gray-700 px-3 py-1 rounded-full text-xs font-medium group-hover:bg-mr-bordo/10 group-hover:text-mr-bordo transition-colors duration-300"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                    {area.features.length > 3 && (
-                      <span className="text-gray-400 text-xs font-medium px-3 py-1">
-                        +{area.features.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="text-mr-bordo text-sm font-medium group-hover:underline flex items-center gap-1">
-                    {currentLanguage === 'PT' ? 'Clique para detalhes' : 'Click for details'}
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
-                </div>
+                {/* Efeito de brilho sutil no hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%] duration-700"></div>
               </div>
-              
-              {/* Efeito de brilho sutil no hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%] duration-700"></div>
+            ))}
+          </div>
+
+          {/* Mobile Scroll */}
+          <div className="md:hidden">
+            <div className="flex overflow-x-auto pb-4 gap-4 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll">
+              {content.areas[activeTab].map((area, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedArea(area)}
+                  className="flex-none w-72 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group cursor-pointer relative overflow-hidden snap-start"
+                >
+                  <div className="h-full flex flex-col relative z-10">
+                    <div className="flex items-start justify-between mb-4">
+                      <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                        {area.icon}
+                      </span>
+                    </div>
+                    
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-mr-bordo transition-colors duration-300">
+                        {area.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                        {area.description}
+                      </p>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-4">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {area.features.slice(0, 3).map((feature, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-gray-50 text-gray-700 px-3 py-1 rounded-full text-xs font-medium group-hover:bg-mr-bordo/10 group-hover:text-mr-bordo transition-colors duration-300"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                        {area.features.length > 3 && (
+                          <span className="text-gray-400 text-xs font-medium px-3 py-1">
+                            +{area.features.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      
+                      <div className="text-mr-bordo text-sm font-medium group-hover:underline flex items-center gap-1">
+                        {currentLanguage === 'PT' ? 'Clique para detalhes' : 'Click for details'}
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Efeito de brilho sutil no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%] duration-700"></div>
+                </div>
+              ))}
             </div>
-          ))}
+            
+            {/* Scroll Indicator */}
+            <div className="flex justify-center mt-4">
+              <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <button onClick={() => scrollToSection('contato')} className="bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
             {currentLanguage === 'PT' ? 'Solicite uma consulta especializada' : 'Request specialized consultation'}
           </button>
         </div>
@@ -448,35 +800,60 @@ export default function NewPracticeAreasSection() {
 
       {/* Modal de Detalhes */}
       <Dialog open={!!selectedArea} onOpenChange={(open: boolean) => !open && setSelectedArea(null)}>
-        <DialogContent className="sm:max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-4xl max-h-[75vh] overflow-y-auto bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl">
           {selectedArea && (
             <>
               <DialogHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-3xl">{selectedArea.icon}</span>
-                  <DialogTitle className="text-xl">{selectedArea.title}</DialogTitle>
+                <div className="relative bg-gradient-to-r from-mr-bordo to-red-700 -m-6 mb-6 p-6 rounded-t-lg">
+                  <div className="absolute inset-0 bg-black/10 rounded-t-lg"></div>
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-3">
+                      <span className="text-3xl">{selectedArea.icon}</span>
+                    </div>
+                    <div>
+                      <DialogTitle className="text-2xl md:text-3xl font-serif font-bold text-white mb-1">
+                        {selectedArea.title}
+                      </DialogTitle>
+                      <div className="text-white/90 text-sm font-medium">
+                        {currentLanguage === 'PT' ? 'Área de Especialização' : 'Specialization Area'}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </DialogHeader>
-              <div className="py-4">
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {selectedArea.description}
-                </p>
+              <div className="px-2">
+                <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 mb-5">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-mr-bordo rounded-full"></span>
+                    {currentLanguage === 'PT' ? 'Descrição' : 'Description'}
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    {selectedArea.description}
+                  </p>
+                </div>
                 
                 {selectedArea.detailedContent ? (
-                  <div 
-                    dangerouslySetInnerHTML={{ 
-                      __html: selectedArea.detailedContent 
-                    }} 
-                    className="prose prose-sm max-w-none"
-                  />
+                  <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <div 
+                      dangerouslySetInnerHTML={{ 
+                        __html: selectedArea.detailedContent 
+                      }} 
+                      className="prose prose-base max-w-none prose-headings:text-mr-bordo prose-p:text-gray-700 prose-li:text-gray-700"
+                    />
+                  </div>
                 ) : (
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-mr-bordo">Serviços Principais:</h4>
+                  <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-mr-bordo rounded-full"></span>
+                      {currentLanguage === 'PT' ? 'Serviços Principais' : 'Main Services'}
+                    </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {selectedArea.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm">
-                          <span className="w-2 h-2 bg-mr-bordo rounded-full"></span>
-                          <span>{feature}</span>
+                        <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-mr-bordo/5 transition-colors duration-200">
+                          <div className="w-8 h-8 bg-mr-bordo/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="w-2 h-2 bg-mr-bordo rounded-full"></span>
+                          </div>
+                          <span className="text-gray-700 font-medium">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -484,22 +861,35 @@ export default function NewPracticeAreasSection() {
                 )}
               </div>
               <DialogFooter>
-                <div className="flex gap-3 w-full sm:w-auto">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => setSelectedArea(null)}
-                    className="flex-1 sm:flex-none"
-                  >
-                    {currentLanguage === 'PT' ? 'Fechar' : 'Close'}
-                  </Button>
-                  <Button 
-                    className="bg-mr-bordo hover:bg-red-700 flex-1 sm:flex-none"
-                    asChild
-                  >
-                    <Link href="#contact">
-                      {currentLanguage === 'PT' ? 'Falar com Especialista' : 'Talk to Specialist'}
-                    </Link>
-                  </Button>
+                <div className="bg-gray-50 -mx-6 -mb-6 px-6 py-5 rounded-b-lg border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row gap-3 w-full">
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setSelectedArea(null)}
+                      className="flex-1 sm:flex-none border-gray-300 hover:bg-white bg-white text-gray-700 font-medium py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-sm"
+                    >
+                      {currentLanguage === 'PT' ? 'Fechar' : 'Close'}
+                    </Button>
+                    <Button 
+                      className="bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white flex-1 sm:flex-none shadow-lg hover:shadow-xl transition-all duration-300 font-semibold py-3 px-6 rounded-lg transform hover:scale-[1.02]"
+                      asChild
+                    >
+                      <Link href="#contato">
+                        {currentLanguage === 'PT' ? 'Falar com Especialista' : 'Talk to Specialist'}
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Informações adicionais */}
+                  <div className="mt-3 pt-3 border-t border-gray-200 text-center">
+                    <p className="text-xs text-gray-500 flex items-center justify-center gap-2">
+                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                      {currentLanguage === 'PT' 
+                        ? 'Primeira consulta gratuita • Resposta em até 24h'
+                        : 'Free first consultation • Response within 24h'
+                      }
+                    </p>
+                  </div>
                 </div>
               </DialogFooter>
             </>

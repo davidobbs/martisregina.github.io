@@ -113,7 +113,7 @@ export default function EnhancedHeroSection() {
           </div>
 
           {/* Credibility Stats Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto animate-fade-in-up delay-1500">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto animate-fade-in-up delay-1500 w-full">
             <div className="text-center group">
               <div className="flex flex-col items-center">
                 <div className="text-4xl md:text-5xl font-bold text-mr-gold mb-2 group-hover:scale-110 transition-transform duration-300">

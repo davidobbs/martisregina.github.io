@@ -144,19 +144,13 @@ export default function TimelineSection() {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-mr-bordo via-mr-bordo/70 to-mr-bordo/30"></div>
-
-          {/* Timeline items */}
-          <div className="space-y-12">
+        {/* Timeline Horizontal Scroll */}
+        <div className="overflow-x-auto w-full pb-4">
+          <div className="flex space-x-8 snap-x snap-mandatory scrollbar-hide px-4">
             {content.milestones.map((milestone, index) => (
-              <div 
+              <div
                 key={index}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:flex-none`}
+                className="flex-none snap-center w-80 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden group"
                 style={{
                   opacity: inView ? 1 : 0,
                   transform: inView ? 'translateY(0)' : 'translateY(30px)',
@@ -165,75 +159,24 @@ export default function TimelineSection() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                
-                {/* Timeline dot */}
-                <div className={`absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-6 h-6 rounded-full border-4 border-white shadow-lg z-10 transition-all duration-300 ${
-                  hoveredIndex === index ? 'bg-mr-bordo scale-125' : 'bg-mr-bordo/70'
-                }`}>
-                  <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
-                    hoveredIndex === index ? 'animate-ping bg-mr-bordo/50' : ''
-                  }`}></div>
-                </div>
-
-                {/* Content card */}
-                <div className={`w-full md:w-5/12 ml-20 md:ml-0 ${
-                  index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
-                }`}>
-                  <div className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden group ${
-                    hoveredIndex === index ? 'ring-2 ring-mr-bordo/20' : ''
-                  }`}>
-                    
-                    {/* Background decoration */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-mr-bordo/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
-                    
-                    {/* Year badge */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="text-3xl">{milestone.icon}</div>
-                      <div className="bg-mr-bordo text-white px-4 py-2 rounded-full font-bold text-lg">
-                        {milestone.year}
-                      </div>
-                      <div className="bg-mr-bordo/10 text-mr-bordo px-3 py-1 rounded-full text-xs font-semibold">
-                        {milestone.highlight}
-                      </div>
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 relative z-10">
-                      {milestone.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-gray-600 leading-relaxed relative z-10">
-                      {milestone.description}
-                    </p>
-
-                    {/* Hover effect line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mr-bordo to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                {/* Card Header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-3xl">{milestone.icon}</div>
+                  <div className="bg-mr-bordo text-white px-4 py-2 rounded-full font-bold text-lg">
+                    {milestone.year}
+                  </div>
+                  <div className="bg-mr-bordo/10 text-mr-bordo px-3 py-1 rounded-full text-xs font-semibold">
+                    {milestone.highlight}
                   </div>
                 </div>
-
-                {/* Empty space for alternating layout on desktop */}
-                <div className="hidden md:block w-5/12"></div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {milestone.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {milestone.description}
+                </p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-mr-bordo/5 to-red-50/50 rounded-2xl p-8 border border-mr-bordo/10">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              {currentLanguage === 'PT' ? 'Faça parte da nossa história' : 'Be part of our history'}
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              {currentLanguage === 'PT' 
-                ? 'Junte-se aos milhares de clientes que confiaram em nossa expertise ao longo de três décadas.'
-                : 'Join the thousands of clients who have trusted our expertise over three decades.'
-              }
-            </p>
-            <button className="bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              {currentLanguage === 'PT' ? 'Conheça nossa história completa' : 'Learn our complete history'}
-            </button>
           </div>
         </div>
       </div>

@@ -140,10 +140,6 @@ export default function SEOOptimization() {
       {/* Canonical URL */}
       <link rel="canonical" href="https://martinsregina.com.br" />
       
-      {/* Preconnect to external resources */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
       {/* Alternate languages */}
       <link rel="alternate" hrefLang="pt-br" href="https://martinsregina.com.br" />
       <link rel="alternate" hrefLang="en" href="https://martinsregina.com.br/en" />

@@ -3,6 +3,7 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Calendar, CheckCircle, MapPin, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 export default function PremiumHeroSection() {
   const { currentLanguage } = useLanguage();
@@ -123,53 +124,132 @@ export default function PremiumHeroSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
-      className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-mr-black to-mr-bordo"
+      className="relative flex flex-col justify-center items-center bg-gradient-to-br from-mr-black to-mr-bordo py-12 sm:py-20 md:min-h-screen"
       role="banner"
       aria-label={currentLanguage === 'PT' ? 'Seção principal do site' : 'Main site section'}
     >
       {/* Overlay escuro para contraste */}
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        {/* Logo centralizada */}
+        <div className={`mb-8 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="flex flex-col items-center">
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <Image
+                src="/logo header.png"
+                alt="Martins Regina Advocacia"
+                width={200}
+                height={100}
+                className="h-auto max-w-[200px] object-contain"
+                sizes="200px"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Título principal */}
-        <h1 className={`text-5xl md:text-7xl font-serif font-bold text-white uppercase mb-4 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white uppercase mb-6 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {currentLanguage === 'PT'
-            ? '30 ANOS DE EXCELÊNCIA JURÍDICA'
-            : '30 YEARS OF LEGAL EXCELLENCE'}
+            ? 'ADVOGADOS ESPECIALISTAS EM PLANEJAMENTO PATRIMONIAL, NEGÓCIOS E CONTRATOS'
+            : 'EXPERT LAWYERS IN WEALTH PLANNING, BUSINESS, AND CONTRACTS'}
         </h1>
 
         {/* Subtítulo */}
-        <p className={`text-xl md:text-2xl text-white/80 uppercase tracking-wider mb-8 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <p className={`text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-8 transition-all duration-1000 delay-400 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {currentLanguage === 'PT'
-            ? 'Planejamento Patrimonial  |  Negócios  |  Contratos'
-            : 'Estate Planning  |  Business  |  Contracts'}
+            ? 'Escritório de advocacia referência em Planejamento Patrimonial'
+            : 'A leading law firm in Wealth Planning'}
         </p>
 
         {/* CTAs */}
-        <div className={`flex gap-4 justify-center mb-6 transition-all duration-1000 delay-400 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transition-all duration-1000 delay-600 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <button
             onClick={() => scrollToSection('contato', 'contact')}
-            className="bg-mr-bordo text-white px-6 py-3 rounded-lg font-semibold hover:bg-black transition-colors duration-300 flex items-center gap-2"
+            disabled={isLoading.contact}
+            className="bg-mr-bordo text-white px-8 py-4 rounded-lg font-semibold hover:bg-black transition-colors duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
           >
-            {currentLanguage === 'PT' ? 'Agende uma Consulta' : 'Schedule a Consultation'}
-            <ArrowRight className="w-4 h-4" />
+            {isLoading.contact ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <>
+                {currentLanguage === 'PT' ? 'Agende uma Consulta' : 'Schedule a Consultation'}
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </button>
           <button
             onClick={() => scrollToSection('about', 'about')}
-            className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-mr-bordo transition-colors duration-300 flex items-center gap-2"
+            disabled={isLoading.about}
+            className="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-mr-bordo transition-colors duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
           >
-            {currentLanguage === 'PT' ? 'Conheça Nossos Sócios' : 'Meet Our Partners'}
-            <ArrowRight className="w-4 h-4" />
+            {isLoading.about ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <>
+                {currentLanguage === 'PT' ? 'Conheça Nossos Sócios' : 'Meet Our Partners'}
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </button>
         </div>
 
         {/* Indicador de scroll */}
-        <div className={`transition-all duration-1000 delay-600 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}> 
+        <div className={`transition-all duration-1000 delay-800 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}> 
           <ChevronDown className="w-6 h-6 text-white animate-bounce mx-auto" />
           <p className="text-sm text-white/70 uppercase tracking-wider mt-2">
             {currentLanguage === 'PT' ? 'Role para descobrir mais' : 'Scroll to discover more'}
           </p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
+          <div className="text-center group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-mr-gold/50">
+              <div className="text-4xl md:text-5xl font-bold text-mr-gold mb-3 group-hover:text-white transition-colors duration-300">
+                30+
+              </div>
+              <div className="text-white/80 text-sm md:text-base uppercase tracking-wider font-medium">
+                {currentLanguage === 'PT' ? 'Anos de Excelência' : 'Years of Excellence'}
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-mr-gold/50">
+              <div className="text-4xl md:text-5xl font-bold text-mr-gold mb-3 group-hover:text-white transition-colors duration-300">
+                14
+              </div>
+              <div className="text-white/80 text-sm md:text-base uppercase tracking-wider font-medium">
+                {currentLanguage === 'PT' ? 'Escritórios Globais' : 'Global Offices'}
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-mr-gold/50">
+              <div className="text-4xl md:text-5xl font-bold text-mr-gold mb-3 group-hover:text-white transition-colors duration-300">
+                16
+              </div>
+              <div className="text-white/80 text-sm md:text-base uppercase tracking-wider font-medium">
+                {currentLanguage === 'PT' ? 'Áreas de Atuação' : 'Practice Areas'}
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-mr-gold/50">
+              <div className="text-4xl md:text-5xl font-bold text-mr-gold mb-3 group-hover:text-white transition-colors duration-300">
+                10K+
+              </div>
+              <div className="text-white/80 text-sm md:text-base uppercase tracking-wider font-medium">
+                {currentLanguage === 'PT' ? 'Clientes Atendidos' : 'Clients Served'}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

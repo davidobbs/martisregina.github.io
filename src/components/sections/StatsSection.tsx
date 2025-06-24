@@ -130,50 +130,101 @@ export default function StatsSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {content.stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="group bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 relative overflow-hidden"
-            >
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-mr-bordo/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
-              
-              {/* Icon */}
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {stat.icon}
+        <div className="relative">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8 w-full">
+            {content.stats.map((stat, index) => (
+              <div key={index} className="w-full">
+                <div className="group bg-white rounded-2xl p-6 md:p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 relative overflow-hidden h-full">
+                  {/* Background decoration */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-mr-bordo/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
+                  
+                  {/* Icon */}
+                  <div className="text-3xl md:text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {stat.icon}
+                  </div>
+                  
+                  {/* Number with animation */}
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-mr-bordo mb-3 relative z-10">
+                    {inView ? (
+                      <CountUp
+                        start={0}
+                        end={stat.number}
+                        duration={2.5}
+                        delay={index * 0.2}
+                        suffix={stat.suffix}
+                        useEasing={true}
+                      />
+                    ) : (
+                      '0' + stat.suffix
+                    )}
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-base md:text-lg font-semibold text-gray-900 mb-2">
+                    {stat.label}
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="text-sm text-gray-600 leading-relaxed">
+                    {stat.description}
+                  </div>
+                </div>
               </div>
-              
-              {/* Number with animation */}
-              <div className="text-4xl md:text-5xl font-bold text-mr-bordo mb-3 relative z-10">
-                {inView ? (
-                  <CountUp
-                    start={0}
-                    end={stat.number}
-                    duration={2.5}
-                    delay={index * 0.2}
-                    suffix={stat.suffix}
-                    useEasing={true}
-                  />
-                ) : (
-                  '0' + stat.suffix
-                )}
-              </div>
-              
-              {/* Label */}
-              <div className="text-lg font-semibold text-gray-900 mb-2">
-                {stat.label}
-              </div>
-              
-              {/* Description */}
-              <div className="text-sm text-gray-600 leading-relaxed">
-                {stat.description}
-              </div>
+            ))}
+          </div>
 
-              {/* Hover effect line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mr-bordo to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          {/* Mobile Scroll */}
+          <div className="md:hidden">
+            <div className="flex overflow-x-auto pb-4 gap-4 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll">
+              {content.stats.map((stat, index) => (
+                <div key={index} className="flex-none w-72 snap-start">
+                  <div className="group bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 relative overflow-hidden h-full">
+                    {/* Background decoration */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-mr-bordo/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
+                    
+                    {/* Icon */}
+                    <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {stat.icon}
+                    </div>
+                    
+                    {/* Number with animation */}
+                    <div className="text-3xl font-bold text-mr-bordo mb-3 relative z-10">
+                      {inView ? (
+                        <CountUp
+                          start={0}
+                          end={stat.number}
+                          duration={2.5}
+                          delay={index * 0.2}
+                          suffix={stat.suffix}
+                          useEasing={true}
+                        />
+                      ) : (
+                        '0' + stat.suffix
+                      )}
+                    </div>
+                    
+                    {/* Label */}
+                    <div className="text-base font-semibold text-gray-900 mb-2">
+                      {stat.label}
+                    </div>
+                    
+                    {/* Description */}
+                    <div className="text-sm text-gray-600 leading-relaxed">
+                      {stat.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+            
+            {/* Scroll Indicator */}
+            <div className="flex justify-center mt-4">
+              <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Call to Action */}

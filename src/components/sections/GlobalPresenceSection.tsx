@@ -157,6 +157,15 @@ const offices: Office[] = [
 export default function GlobalPresenceSection() {
   const { currentLanguage } = useLanguage();
   const [selectedOffice, setSelectedOffice] = useState<Office | null>(null);
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerHeight = 80;
+      const pos = el.getBoundingClientRect().top;
+      const offset = pos + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  };
   const [hoveredOffice, setHoveredOffice] = useState<string | null>(null);
 
   const handleOfficeClick = (office: Office) => {
@@ -303,7 +312,7 @@ export default function GlobalPresenceSection() {
         </div>
 
         {/* Offices Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-6 mb-16 w-full">
           {offices.map((office, index) => (
             <div
               key={office.id}
@@ -500,10 +509,18 @@ export default function GlobalPresenceSection() {
 
               {/* Action Buttons */}
               <div className="flex gap-4 mt-8">
-                <button className="flex-1 bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white py-3 px-6 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+                <button onClick={() => scrollToSection('contato')} className="flex-1 bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white py-3 px-6 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
                   {currentLanguage === 'PT' ? 'Agendar Reunião' : 'Schedule Meeting'}
                 </button>
-                <button className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-6 rounded-full font-medium transition-colors duration-300">
+                <button
+                  onClick={() => window.open(
+                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      selectedOffice?.address || ''
+                    )}`,
+                    '_blank'
+                  )}
+                  className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-6 rounded-full font-medium transition-colors duration-300"
+                >
                   {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
                 </button>
               </div>

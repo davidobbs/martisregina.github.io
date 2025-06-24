@@ -560,6 +560,16 @@ export default function ArticlesSection() {
     setSelectedArticle(null);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerHeight = 80;
+      const pos = el.getBoundingClientRect().top;
+      const offset = pos + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="artigos" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -575,18 +585,27 @@ export default function ArticlesSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
-          {articles.map((article) => (
-            <ArticleCard 
-              key={article.id} 
-              article={article} 
-              onCardClick={openArticleModal} 
-            />
-          ))}
+        <div className="relative mb-10">
+          <div className="flex overflow-x-auto pb-4 gap-4 md:gap-6 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll px-1">
+            {articles.map((article) => (
+              <div key={article.id} className="flex-none w-72 sm:w-80 md:w-96 snap-start">
+                <ArticleCard 
+                  article={article} 
+                  onCardClick={openArticleModal} 
+                />
+              </div>
+            ))}
+          </div>
+          {/* Indicador de scroll para mobile */}
+          <div className="flex justify-center mt-4 md:hidden">
+            <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+              ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+            </div>
+          </div>
         </div>
         
         <div className="text-center">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => scrollToSection('artigos')}>
             {currentLanguage === 'PT' ? 'Ver mais artigos' : 'View more articles'} 
           </Button>
         </div>
@@ -594,7 +613,7 @@ export default function ArticlesSection() {
 
       {selectedArticle && (
         <Dialog open={!!selectedArticle} onOpenChange={(isOpen) => { if (!isOpen) closeArticleModal(); }}>
-          <DialogContent className="sm:max-w-[700px] md:max-w-[800px] max-h-[85vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
+          <DialogContent className="w-full max-w-[90vw] sm:max-w-[700px] md:max-w-[800px] max-h-[85vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
             <DialogHeader>
               <DialogTitle className="text-2xl lg:text-3xl font-serif">{selectedArticle.title}</DialogTitle>
               <div className="text-sm text-muted-foreground mt-1">

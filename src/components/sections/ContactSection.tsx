@@ -16,7 +16,8 @@ export default function ContactSection() {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    subscribe: false
   });
 
   useEffect(() => {
@@ -40,6 +41,11 @@ export default function ContactSection() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: checked }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setTimeout(() => {
@@ -48,250 +54,439 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-48 h-48 bg-mr-bordo rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-mr-bordo/60 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-mr-bordo/30 rounded-full blur-3xl"></div>
+    <section id="contato" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-50">
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-0 left-0 w-full h-full bg-gray-100"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-mr-bordo/10 rounded-full px-6 py-3 mb-6 border border-mr-bordo/20">
+        <div className={`text-center mb-20 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="inline-flex items-center gap-2 bg-mr-bordo/8 rounded-full px-6 py-2 mb-8 border border-mr-bordo/15">
             <div className="w-2 h-2 bg-mr-bordo rounded-full animate-pulse"></div>
-            <span className="text-mr-bordo text-sm font-semibold tracking-wide uppercase">
-              {currentLanguage === 'PT' ? 'Entre em Contato' : 'Get in Touch'}
+            <span className="text-mr-bordo text-sm font-medium tracking-wider uppercase">
+              {currentLanguage === 'PT' ? 'Fale Conosco' : 'Contact Us'}
             </span>
           </div>
 
-          {/* Main Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
-            <span className="block mb-2">
-              {currentLanguage === 'PT' ? 'Vamos' : "Let's"}
-            </span>
-            <span className="text-mr-bordo">
-              {currentLanguage === 'PT' ? 'Conversar' : 'Talk'}
-            </span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+            {currentLanguage === 'PT' ? (
+              <>
+                <span className="block text-gray-700">Vamos</span>
+                <span className="text-mr-bordo">Conversar?</span>
+              </>
+            ) : (
+              <>
+                <span className="block text-gray-700">Let's</span>
+                <span className="text-mr-bordo">Connect?</span>
+              </>
+            )}
           </h2>
 
-          {/* Subtitle */}
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed font-light">
             {currentLanguage === 'PT'
-              ? 'Entre em contato conosco para agendar uma consulta ou obter mais informações sobre nossos serviços jurídicos especializados.'
-              : 'Contact us to schedule a consultation or get more information about our specialized legal services.'}
+              ? 'Estamos prontos para ouvir você. Entre em contato e descubra como podemos ajudar com suas necessidades jurídicas.'
+              : 'We are ready to listen to you. Get in touch and discover how we can help with your legal needs.'}
           </p>
-
-          {/* Decorative Line */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="w-16 h-1 bg-gradient-to-r from-mr-bordo to-red-600 rounded-full"></div>
-            <div className="w-8 h-1 bg-mr-bordo/40 rounded-full"></div>
-            <div className="w-4 h-1 bg-mr-bordo/20 rounded-full"></div>
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Form Section */}
-          <div className={`transition-all duration-1000 delay-300 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <Card className="overflow-hidden border-0 shadow-2xl bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-0">
-                {!formSubmitted ? (
-                  <form onSubmit={handleSubmit} className="p-8">
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <Label htmlFor="name" className="text-gray-700 font-medium">
+        <div className="max-w-7xl mx-auto">
+          <div className={`transition-all duration-1000 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {/* Formulário de Contato */}
+              <Card className="overflow-hidden border-0 shadow-2xl bg-white/90 backdrop-blur-xl rounded-3xl">
+                <CardContent className="p-0">
+                  {!formSubmitted ? (
+                    <form onSubmit={handleSubmit} className="p-8 md:p-12">
+                      <div className="space-y-6 mb-8">
+                        <div className="group">
+                          <Label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
                             {currentLanguage === 'PT' ? 'Nome Completo' : 'Full Name'}
                           </Label>
-                          <Input 
-                            id="name" 
-                            name="name" 
-                            placeholder={currentLanguage === 'PT' ? 'Seu nome completo' : 'Your full name'} 
-                            required 
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="border-gray-200 focus:border-mr-bordo focus:ring-mr-bordo/20 transition-all duration-300"
-                          />
+                          <div className="relative">
+                            <Input 
+                              id="name" 
+                              name="name" 
+                              placeholder={currentLanguage === 'PT' ? 'Digite seu nome' : 'Enter your name'} 
+                              required 
+                              value={formData.name}
+                              onChange={handleChange}
+                              className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-mr-bordo focus:ring-0 transition-all duration-300 text-gray-900 placeholder-gray-400 bg-white/80"
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mr-bordo/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none"></div>
+                          </div>
                         </div>
-                        
-                        <div className="space-y-2">
-                          <Label htmlFor="phone" className="text-gray-700 font-medium">
+
+                        <div className="group">
+                          <Label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
+                            {currentLanguage === 'PT' ? 'E-mail' : 'Email'}
+                          </Label>
+                          <div className="relative">
+                            <Input 
+                              id="email" 
+                              name="email" 
+                              type="email" 
+                              placeholder={currentLanguage === 'PT' ? 'seu@email.com' : 'your@email.com'} 
+                              required 
+                              value={formData.email}
+                              onChange={handleChange}
+                              className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-mr-bordo focus:ring-0 transition-all duration-300 text-gray-900 placeholder-gray-400 bg-white/80"
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mr-bordo/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none"></div>
+                          </div>
+                        </div>
+
+                        <div className="group">
+                          <Label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
                             {currentLanguage === 'PT' ? 'Telefone' : 'Phone'}
                           </Label>
-                          <Input 
-                            id="phone" 
-                            name="phone" 
-                            placeholder={currentLanguage === 'PT' ? '(00) 00000-0000' : '(00) 00000-0000'} 
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="border-gray-200 focus:border-mr-bordo focus:ring-mr-bordo/20 transition-all duration-300"
-                          />
+                          <div className="relative">
+                            <Input 
+                              id="phone" 
+                              name="phone" 
+                              placeholder={currentLanguage === 'PT' ? '(00) 00000-0000' : '(00) 00000-0000'} 
+                              value={formData.phone}
+                              onChange={handleChange}
+                              className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-mr-bordo focus:ring-0 transition-all duration-300 text-gray-900 placeholder-gray-400 bg-white/80"
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mr-bordo/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div className="group h-full">
+                          <Label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
+                            {currentLanguage === 'PT' ? 'Mensagem' : 'Message'}
+                          </Label>
+                          <div className="relative h-full">
+                            <Textarea 
+                              id="message" 
+                              name="message" 
+                              placeholder={currentLanguage === 'PT' ? 'Conte-nos como podemos ajudar você...' : 'Tell us how we can help you...'} 
+                              rows={6} 
+                              required 
+                              value={formData.message}
+                              onChange={handleChange}
+                              className="w-full h-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-mr-bordo focus:ring-0 transition-all duration-300 text-gray-900 placeholder-gray-400 bg-white/80 resize-none"
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mr-bordo/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mb-8">
+                        <div className="flex items-start space-x-4 p-4 bg-gray-50/80 rounded-xl border border-gray-100">
+                          <div className="flex items-center h-6">
+                            <Input
+                              id="subscribe"
+                              name="subscribe"
+                              type="checkbox"
+                              checked={formData.subscribe}
+                              onChange={handleCheckboxChange}
+                              className="h-5 w-5 text-mr-bordo border-2 border-gray-300 rounded focus:ring-mr-bordo/20 focus:ring-2 transition-all accent-mr-bordo checked:bg-mr-bordo checked:border-mr-bordo hover:border-mr-bordo/50"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <Label htmlFor="subscribe" className="text-sm font-medium text-gray-700 cursor-pointer leading-relaxed">
+                              {currentLanguage === 'PT'
+                                ? 'Quero receber insights jurídicos exclusivos e novidades do escritório por e-mail'
+                                : 'I want to receive exclusive legal insights and firm updates via email'}
+                            </Label>
+                            <p className="text-xs text-gray-500 mt-1">
+                              {currentLanguage === 'PT'
+                                ? 'Você pode cancelar a qualquer momento'
+                                : 'You can unsubscribe at any time'}
+                            </p>
+                          </div>
                         </div>
                       </div>
                       
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-gray-700 font-medium">
-                          {currentLanguage === 'PT' ? 'E-mail' : 'Email'}
-                        </Label>
-                        <Input 
-                          id="email" 
-                          name="email" 
-                          type="email" 
-                          placeholder={currentLanguage === 'PT' ? 'seu.email@exemplo.com' : 'your.email@example.com'} 
-                          required 
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="border-gray-200 focus:border-mr-bordo focus:ring-mr-bordo/20 transition-all duration-300"
-                        />
+                      <div className="text-center">
+                        <Button 
+                          type="submit" 
+                          className="group relative px-12 py-4 bg-gradient-to-r from-mr-bordo via-red-700 to-mr-bordo text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-mr-bordo to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          <span className="relative flex items-center justify-center gap-3 text-lg">
+                            {currentLanguage === 'PT' ? 'Enviar Mensagem' : 'Send Message'}
+                            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                          </span>
+                        </Button>
                       </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="message" className="text-gray-700 font-medium">
-                          {currentLanguage === 'PT' ? 'Mensagem' : 'Message'}
-                        </Label>
-                        <Textarea 
-                          id="message" 
-                          name="message" 
-                          placeholder={currentLanguage === 'PT' ? 'Como podemos ajudar? Conte-nos sobre sua necessidade jurídica...' : 'How can we help? Tell us about your legal needs...'} 
-                          rows={6} 
-                          required 
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="border-gray-200 focus:border-mr-bordo focus:ring-mr-bordo/20 transition-all duration-300 resize-none"
-                        />
-                      </div>
-                    </div>
-                    
-                    <Button type="submit" className="w-full mt-8 bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                      <span className="flex items-center justify-center gap-3">
-                        {currentLanguage === 'PT' ? 'Enviar mensagem' : 'Send message'}
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </form>
+                  ) : (
+                    <div className="p-12 text-center">
+                      <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                      </span>
-                    </Button>
-                  </form>
-                ) : (
-                  <div className="p-8 text-center">
-                    <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                      </div>
+                      <h3 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+                        {currentLanguage === 'PT' ? 'Mensagem Enviada!' : 'Message Sent!'}
+                      </h3>
+                      <p className="text-lg text-gray-600 leading-relaxed max-w-md mx-auto">
+                        {currentLanguage === 'PT'
+                          ? 'Obrigado pelo seu contato! Nossa equipe entrará em contato em breve.'
+                          : 'Thank you for your message! Our team will get back to you soon.'}
+                      </p>
+                      <div className="mt-8">
+                        <Button 
+                          onClick={() => setFormSubmitted(false)}
+                          className="px-8 py-3 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-xl transition-colors"
+                        >
+                          {currentLanguage === 'PT' ? 'Enviar Nova Mensagem' : 'Send New Message'}
+                        </Button>
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
-                      {currentLanguage === 'PT' ? 'Mensagem enviada!' : 'Message sent!'}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {currentLanguage === 'PT'
-                        ? 'Obrigado pelo seu contato. Nossa equipe analisará sua solicitação e retornará em breve.'
-                        : 'Thank you for your message. Our team will review your request and get back to you soon.'}
-                    </p>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Informações de Contato */}
+              <Card className="p-6 bg-white/90 backdrop-blur-sm border-0 shadow-xl rounded-2xl">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">
+                    {currentLanguage === 'PT' ? 'Contato Direto' : 'Direct Contact'}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {currentLanguage === 'PT' ? 'Fale conosco agora mesmo' : 'Contact us right now'}
+                  </p>
+                </div>
+                
+                <div className="space-y-4">
+                  {/* WhatsApp Campinas */}
+                  <a 
+                    href="https://wa.me/5519991866133" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                      <WhatsAppIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">WhatsApp Campinas</p>
+                      <p className="text-green-600 font-medium">+55 19 99186-6133</p>
+                      <p className="text-xs text-gray-500">Campinas/SP</p>
+                    </div>
+                  </a>
+
+                  {/* WhatsApp RJ */}
+                  <a 
+                    href="https://wa.me/5521995227018" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                      <WhatsAppIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">WhatsApp RJ</p>
+                      <p className="text-green-600 font-medium">+55 21 99522-7018</p>
+                      <p className="text-xs text-gray-500">Rio de Janeiro/RJ</p>
+                    </div>
+                  </a>
+
+                  {/* Telefone Rio de Janeiro */}
+                  <div className="flex items-center p-4 bg-mr-bordo/5 rounded-xl">
+                    <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                      <PhoneIcon className="w-6 h-6 text-mr-bordo" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Telefone RJ</p>
+                      <p className="text-mr-bordo font-medium">+55 21 2532-7311</p>
+                      <p className="text-xs text-gray-500">Rio de Janeiro/RJ</p>
+                    </div>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-          
-          {/* Contact Info Section */}
-          <div className={`space-y-8 transition-all duration-1000 delay-500 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            
-            {/* Contact Methods */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">
-                {currentLanguage === 'PT' ? 'Informações de Contato' : 'Contact Information'}
-              </h3>
-              
-              <div className="space-y-6">
-                <ContactItem 
-                  icon={<PhoneIcon />}
-                  label={currentLanguage === 'PT' ? 'Telefone' : 'Phone'} 
-                  value={
-                    <>
-                      Rio de Janeiro: +55 21 2532-7311<br />
-                      São Paulo: +55 11 5504-1962
-                    </>
-                  } 
-                />
-                
-                <ContactItem 
-                  icon={<WhatsAppIcon />}
-                  label="WhatsApp" 
-                  value={[
-                    { display: "Rio de Janeiro: +55 21 98777-1186", number: "5521987771186" },
-                    { display: "Campinas: +55 19 9.9186-6133", number: "5519991866133" },
-                    { display: "Portugal: +351 913 049 169", number: "351913049169" }
-                  ]}
-                />
-                
-                <ContactItem 
-                  icon={<EmailIcon />}
-                  label={currentLanguage === 'PT' ? 'E-mail' : 'Email'} 
-                  value="contato@martinsregina.com" 
-                />
-              </div>
+
+                  {/* Telefone São Paulo */}
+                  <div className="flex items-center p-4 bg-mr-bordo/5 rounded-xl">
+                    <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                      <PhoneIcon className="w-6 h-6 text-mr-bordo" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Telefone SP</p>
+                      <p className="text-mr-bordo font-medium">+55 11 5504-1962</p>
+                      <p className="text-xs text-gray-500">São Paulo/SP</p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <a 
+                    href="mailto:contato@martinsregina.com" 
+                    className="flex items-center p-4 bg-blue-50 hover:bg-blue-100 rounded-xl transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                      <EmailIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">E-mail</p>
+                      <p className="text-blue-600 font-medium">contato@martinsregina.com</p>
+                      <p className="text-xs text-gray-500">
+                        {currentLanguage === 'PT' ? 'Resposta em até 24h' : 'Response within 24h'}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </Card>
             </div>
-            
-            {/* Office Hours */}
-            <Card className="p-6 bg-gradient-to-br from-mr-bordo/5 to-red-50/50 border border-mr-bordo/10 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-mr-bordo/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-mr-bordo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-lg font-serif font-semibold text-gray-900 mb-3">
-                    {currentLanguage === 'PT' ? 'Horário de Atendimento' : 'Office Hours'}
-                  </h4>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span>{currentLanguage === 'PT' ? 'Segunda a Sexta:' : 'Monday to Friday:'}</span>
-                      <span className="font-medium">9h às 18h</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>{currentLanguage === 'PT' ? 'Fins de semana:' : 'Weekends:'}</span>
-                      <span className="font-medium">{currentLanguage === 'PT' ? 'Fechado' : 'Closed'}</span>
-                    </div>
-                  </div>
-                </div>
+
+            {/* Seção de Escritórios com Mapas */}
+            <div className={`transition-all duration-1000 delay-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className="text-center mb-12">
+                <h3 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+                  {currentLanguage === 'PT' ? 'Nossos Escritórios' : 'Our Offices'}
+                </h3>
+                <p className="text-xl text-gray-600">
+                  {currentLanguage === 'PT' ? 'Encontre o escritório mais próximo de você' : 'Find the office closest to you'}
+                </p>
               </div>
-            </Card>
 
-            {/* Quick Contact Actions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <a 
-                href="tel:+552125327311"
-                className="group flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-mr-bordo hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-10 h-10 bg-mr-bordo/10 rounded-lg flex items-center justify-center group-hover:bg-mr-bordo/20 transition-colors duration-300">
-                  <PhoneIcon className="w-5 h-5 text-mr-bordo" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">
-                    {currentLanguage === 'PT' ? 'Ligar agora' : 'Call now'}
-                  </div>
-                  <div className="text-sm text-gray-500">+55 21 2532-7311</div>
-                </div>
-              </a>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Campinas */}
+                <Card className="overflow-hidden border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl group hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                          <MapIcon className="w-6 h-6 text-mr-bordo" />
+                        </div>
+                        <h4 className="text-xl font-serif font-bold text-gray-900">Campinas/SP</h4>
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed mb-4">
+                        <p>Rua Avelino Silveira Franco 149, sala 352</p>
+                        <p>Condomínio L'Office, Ville Sainte Hélène</p>
+                        <p>CEP 13105-822</p>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Rua+Avelino+Silveira+Franco+149,+sala+352,+Campinas,+SP,+13105-822" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-mr-bordo text-white rounded-lg hover:bg-red-800 transition-colors group-hover:scale-105 transform duration-300"
+                      >
+                        <MapIcon className="w-4 h-4 mr-2" />
+                        {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              <a 
-                href="https://wa.me/5521987771186"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-gray-400 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors duration-300">
-                  <WhatsAppIcon className="w-5 h-5 text-gray-700" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">WhatsApp</div>
-                  <div className="text-sm text-gray-500">
-                    {currentLanguage === 'PT' ? 'Mensagem rápida' : 'Quick message'}
-                  </div>
-                </div>
-              </a>
+                {/* Rio de Janeiro */}
+                <Card className="overflow-hidden border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl group hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                          <MapIcon className="w-6 h-6 text-mr-bordo" />
+                        </div>
+                        <h4 className="text-xl font-serif font-bold text-gray-900">Rio de Janeiro/RJ</h4>
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed mb-4">
+                        <p>Av. das Américas 8.585, sala 339</p>
+                        <p>Shopping Vogue Square, Setor Offices</p>
+                        <p>Barra da Tijuca, CEP 22793-081</p>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Av.+das+Américas+8585,+sala+339,+Barra+da+Tijuca,+Rio+de+Janeiro,+RJ,+22793-081" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-mr-bordo text-white rounded-lg hover:bg-red-800 transition-colors group-hover:scale-105 transform duration-300"
+                      >
+                        <MapIcon className="w-4 h-4 mr-2" />
+                        {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* São Paulo */}
+                <Card className="overflow-hidden border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl group hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                          <MapIcon className="w-6 h-6 text-mr-bordo" />
+                        </div>
+                        <h4 className="text-xl font-serif font-bold text-gray-900">São Paulo/SP</h4>
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed mb-4">
+                        <p>CEMG - Centro Empresarial Mario Garnero</p>
+                        <p>Av. Brigadeiro Faria Lima 1.461, 4º andar</p>
+                        <p>Jardim Paulistano, CEP 01452-921</p>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Av.+Brigadeiro+Faria+Lima+1461,+4º+andar,+Jardim+Paulistano,+São+Paulo,+SP,+01452-921" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-mr-bordo text-white rounded-lg hover:bg-red-800 transition-colors group-hover:scale-105 transform duration-300"
+                      >
+                        <MapIcon className="w-4 h-4 mr-2" />
+                        {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Joinville */}
+                <Card className="overflow-hidden border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl group hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                          <MapIcon className="w-6 h-6 text-mr-bordo" />
+                        </div>
+                        <h4 className="text-xl font-serif font-bold text-gray-900">Joinville/SC</h4>
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed mb-4">
+                        <p>Ed. Helbor Dual</p>
+                        <p>Rua Expedicionário Holz 550, sala 1.301</p>
+                        <p>América, CEP 89201-740</p>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Rua+Expedicionário+Holz+550,+sala+1301,+América,+Joinville,+SC,+89201-740" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-mr-bordo text-white rounded-lg hover:bg-red-800 transition-colors group-hover:scale-105 transform duration-300"
+                      >
+                        <MapIcon className="w-4 h-4 mr-2" />
+                        {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Porto/Portugal */}
+                <Card className="overflow-hidden border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl group hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-mr-bordo/10 rounded-full flex items-center justify-center mr-4">
+                          <MapIcon className="w-6 h-6 text-mr-bordo" />
+                        </div>
+                        <h4 className="text-xl font-serif font-bold text-gray-900">Porto/Portugal</h4>
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed mb-4">
+                        <p>Shopping Brasília, Loja 8B</p>
+                        <p>1ª Cave</p>
+                        <p>Praça de Mouzinho de Albuquerque 113</p>
+                        <p>CP 4100-359</p>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Praça+de+Mouzinho+de+Albuquerque+113,+4100-359+Porto,+Portugal" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-mr-bordo text-white rounded-lg hover:bg-red-800 transition-colors group-hover:scale-105 transform duration-300"
+                      >
+                        <MapIcon className="w-4 h-4 mr-2" />
+                        {currentLanguage === 'PT' ? 'Ver no Mapa' : 'View on Map'}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
@@ -300,7 +495,6 @@ export default function ContactSection() {
   );
 }
 
-// Icon Components
 function PhoneIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg className={`${className} text-mr-bordo`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,38 +519,11 @@ function EmailIcon({ className = "w-6 h-6" }: { className?: string }) {
   );
 }
 
-interface ContactItemProps {
-  icon: React.ReactNode;
-  label: string;
-  value: React.ReactNode | Array<{ display: string; number: string }>;
-}
-
-function ContactItem({ icon, label, value }: ContactItemProps) {
+function MapIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-mr-bordo/30 hover:shadow-md transition-all duration-300">
-      <div className="w-12 h-12 bg-mr-bordo/10 rounded-xl flex items-center justify-center flex-shrink-0">
-        {icon}
-      </div>
-      <div className="flex-1">
-        <div className="font-semibold text-gray-900 mb-1">{label}</div>
-        <div className="text-gray-600">
-          {label === "WhatsApp" && Array.isArray(value)
-            ? value.map((item, index) => (
-                <React.Fragment key={index}>
-                  <a
-                    href={`https://wa.me/${item.number}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-mr-bordo transition-colors duration-300"
-                  >
-                    {item.display}
-                  </a>
-                  {index < value.length - 1 && <br />}
-                </React.Fragment>
-              ))
-            : (value as React.ReactNode)}
-        </div>
-      </div>
-    </div>
+    <svg className={`${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
   );
-}
+} 

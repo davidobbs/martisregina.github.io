@@ -20,22 +20,35 @@ export default function RecognitionSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <RecognitionCard 
-            title="Anuário Análise Advocacia 2022" 
-            description={currentLanguage === 'PT'
-              ? 'O Martins Regina Advocacia e o Dr. Pedro DeRegina foram reconhecidos entre os mais admirados do Brasil, segundo pesquisa com executivos que contratam serviços jurídicos.'
-              : 'Martins Regina Advocacia and Dr. Pedro DeRegina were recognized among the most admired in Brazil, according to a survey of executives hiring legal services.'}
-            date="16/02/2023"
-          />
+        <div className="relative">
+          <div className="flex overflow-x-auto pb-4 gap-4 md:gap-8 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal px-1 md:grid md:grid-cols-2 md:overflow-visible md:snap-none">
+            <div className="flex-none w-72 sm:w-80 md:w-auto snap-start">
+              <RecognitionCard 
+                title="Anuário Análise Advocacia 2022" 
+                description={currentLanguage === 'PT'
+                  ? 'O Martins Regina Advocacia e o Dr. Pedro DeRegina foram reconhecidos entre os mais admirados do Brasil, segundo pesquisa com executivos que contratam serviços jurídicos.'
+                  : 'Martins Regina Advocacia and Dr. Pedro DeRegina were recognized among the most admired in Brazil, according to a survey of executives hiring legal services.'}
+                date="16/02/2023"
+              />
+            </div>
+            
+            <div className="flex-none w-72 sm:w-80 md:w-auto snap-start">
+              <RecognitionCard 
+                title={currentLanguage === 'PT' ? 'Entrevista Quality Magazine' : 'Interview with Quality Magazine'} 
+                description={currentLanguage === 'PT'
+                  ? 'Dr. Pedro DeRegina foi entrevistado pela revista Quality Magazine, destacando a reestruturação interna do escritório em 2017 e as iniciativas de inovação.'
+                  : "Dr. Pedro DeRegina was interviewed by Quality Magazine, highlighting the firm's internal restructuring in 2017 and its innovation initiatives."}
+                date="01/11/2022"
+              />
+            </div>
+          </div>
           
-          <RecognitionCard 
-            title={currentLanguage === 'PT' ? 'Entrevista Quality Magazine' : 'Interview with Quality Magazine'} 
-            description={currentLanguage === 'PT'
-              ? 'Dr. Pedro DeRegina foi entrevistado pela revista Quality Magazine, destacando a reestruturação interna do escritório em 2017 e as iniciativas de inovação.'
-              : "Dr. Pedro DeRegina was interviewed by Quality Magazine, highlighting the firm's internal restructuring in 2017 and its innovation initiatives."}
-            date="01/11/2022"
-          />
+          {/* Indicador de scroll para mobile */}
+          <div className="flex justify-center mt-4 md:hidden">
+            <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+              ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+            </div>
+          </div>
         </div>
       </div>
     </section>

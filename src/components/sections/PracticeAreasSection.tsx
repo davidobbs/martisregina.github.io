@@ -2057,97 +2057,58 @@ export default function PracticeAreasSection() {
         <div class="space-y-6">
           <div>
             <p class="text-base leading-relaxed mb-4">
-              O Direito Tributário é um ramo do Direito Privado que se dedica ao estudo e à prática da tributação, abrangendo desde o planejamento tributário até o contencioso tributário.
+              O sistema tributário brasileiro é o mais complexo e desafiador sistema jurídico, e por isso merece advogados especializados em Direito Tributário.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+              O Direito Tributário determina e fiscaliza a arrecadação de tributos, combate abusos do fisco e controla o pagamento de contribuintes. O papel do advogado tributarista nas empresas é defender o patrimônio do empreendedor e evitar cobranças abusivas, direcionando todo o processo fiscal da organização.
             </p>
             <p class="text-base leading-relaxed mb-6">
-              Nossa equipe de advogados especialistas em Direito Tributário está preparada para fornecer assessoria jurídica especializada em questões tributárias, incluindo planejamento tributário, defesa em processos contenciosos e representação em audiências e ações judiciais.
+              Quem conta com um tributarista tem segurança para evitar riscos e prejuízos, garantindo o planejamento tributário adequado.
             </p>
           </div>
 
           <div class="bg-gray-50 p-4 rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
               <div class="md:border-r md:border-gray-200 md:pr-4">
-                <div class="text-2xl font-bold text-mr-bordo">R$ 34,8 Bi</div>
-                <div class="text-sm text-gray-600">volume de M&A no mês de novembro de 2020</div>
+                <div class="text-2xl font-bold text-mr-bordo">403.322</div>
+                <div class="text-sm text-gray-600">leis tributárias editadas no Brasil desde a promulgação da Constituição até 2019</div>
               </div>
               <div class="md:pl-4 mt-4 md:mt-0">
-                <div class="text-2xl font-bold text-mr-bordo">R$ 600 Bi</div>
-                <div class="text-sm text-gray-600">produção das Micro e Pequenas Empresas segundo dados do SEBRAE</div>
+                <div class="text-2xl font-bold text-mr-bordo">35,17%</div>
+                <div class="text-sm text-gray-600">do PIB é a carga tributária brasileira</div>
               </div>
             </div>
           </div>
 
-          <div>
-            <p class="text-base leading-relaxed mb-4">
-              Independente da forma – alienação, aquisição, fusão, Joint Venture, incorporação, cisão, reestruturação etc. – a avaliação criteriosa se faz necessária antes de escolher a melhor forma societária. Ajudamos sua empresa a escolher as formas societárias e contratuais mais eficientes de acordo com o seu modelo de negócio.
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-mr-bordo">
+            <h4 class="font-semibold text-mr-bordo mb-3">Atuação Consultiva e Contenciosa</h4>
+            <p class="text-sm text-gray-700 mb-2">
+              <strong>Consultivo:</strong> Fornecemos pareceres técnicos sobre diversos temas, considerando não só leis em vigor mas também projetos de lei em tramitação.
             </p>
-            <p class="text-base leading-relaxed mb-6">
-              O objetivo do Martins Regina Advocacia é dar segurança à sua empresa para que o caminho a ser traçado esteja tecnicamente respaldado, potencializando o crescimento e consequentemente os ganhos da empresa.
+            <p class="text-sm text-gray-700">
+              <strong>Contencioso:</strong> Defendemos clientes contra autuações de entes públicos em processos administrativos e judiciais tributários.
             </p>
           </div>
 
           <div>
-            <h4 class="font-semibold text-mr-bordo mb-4">O que nossos advogados podem fazer por você e sua empresa?</h4>
-            <p class="text-base leading-relaxed mb-4">
-              Nossas práticas no Direito Societário abrangem todas as formas de sociedades, em especial as limitadas e de capital fechado que desejam se estruturar para crescer e avançar nas suas próximas etapas. O escritório presta, ainda, serviços como:
-            </p>
+            <h4 class="font-semibold text-mr-bordo mb-4">Principais serviços oferecidos em Direito Tributário:</h4>
             
             <ul class="space-y-2 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Avaliação de riscos das formas societárias escolhidas</span>
+                <span>Planejamento Tributário (estratégias lícitas para reduzir carga fiscal, aproveitar incentivos, escolher regime tributário adequado)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Estruturação de empresas</span>
+                <span>Consultoria em temas tributários diversos (esclarecimento de dúvidas fiscais, emissão de pareceres legais sobre interpretação de normas)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Reestruturação empresarial</span>
+                <span>Contencioso administrativo e judicial tributário (defesa em autos de infração, impugnações, recursos, ações judiciais)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Assessoria e Consultoria jurídica</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Adequação dos Contratos e Estatutos sociais frente às novas mudanças legislativas e cenário pandêmico</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>M&A</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Preparação para venda da empresa</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Consultoria sobre due diligences na pré-aquisição e pré-venda</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Planejamento e estruturação de Negócios</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Permuta</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Formação de grupos e Associações</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Reorganização societária e do modelo de negócio</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Fusão, Cisão e Incorporação</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Defesa do direito dos acionistas</span>
+                <span>Transfer Pricing (preços de transferência para empresas que fazem comércio internacional intragrupo)</span>
               </li>
             </ul>
           </div>
@@ -2157,100 +2118,58 @@ export default function PracticeAreasSection() {
         <div class="space-y-6">
           <div>
             <p class="text-base leading-relaxed mb-4">
-              The business environment in Brazil is extremely complex as it involves corporate, tax and labor aspects, not to mention economic variables that directly affect business operations. Despite the challenging scenario, Brazil is still an attractive market.
+              The Brazilian tax system is the most complex and challenging legal system, and therefore deserves lawyers specialized in Tax Law.
             </p>
             <p class="text-base leading-relaxed mb-4">
-              Merger and acquisition (M&A) operations, for example, maintain stable volume and have even shown growth in recent statistics. This is because the Brazilian market has significant volume and geographical prominence that attracts investors (national and foreign).
+              Tax Law determines and supervises tax collection, combats tax abuses and controls taxpayer payments. The role of the tax lawyer in companies is to defend the entrepreneur's assets and avoid abusive charges, directing the entire tax process of the organization.
             </p>
             <p class="text-base leading-relaxed mb-6">
-              Nevertheless, recent legal reforms such as the Labor Reform, the "Economic Freedom MP" converted into law 13.874/2019, and even the bill for Tax Reform in Brazil aimed at simplifying and modernizing the Brazilian tax system, are indications that Brazil is walking positively in building its future and with attention to the Business environment, making the country increasingly attractive in the eyes of investors.
+              Those who have a tax specialist have security to avoid risks and losses, ensuring adequate tax planning.
             </p>
           </div>
 
           <div class="bg-gray-50 p-4 rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
               <div class="md:border-r md:border-gray-200 md:pr-4">
-                <div class="text-2xl font-bold text-mr-bordo">R$ 34.8 Bi</div>
-                <div class="text-sm text-gray-600">M&A volume in November 2020</div>
+                <div class="text-2xl font-bold text-mr-bordo">403,322</div>
+                <div class="text-sm text-gray-600">tax laws enacted in Brazil since the promulgation of the Constitution until 2019</div>
               </div>
               <div class="md:pl-4 mt-4 md:mt-0">
-                <div class="text-2xl font-bold text-mr-bordo">R$ 600 Bi</div>
-                <div class="text-sm text-gray-600">production of Micro and Small Enterprises according to SEBRAE data</div>
+                <div class="text-2xl font-bold text-mr-bordo">35.17%</div>
+                <div class="text-sm text-gray-600">of GDP is the Brazilian tax burden</div>
               </div>
             </div>
           </div>
 
-          <div>
-            <p class="text-base leading-relaxed mb-4">
-              Regardless of the form – disposal, acquisition, merger, Joint Venture, incorporation, spin-off, restructuring, etc. – careful evaluation is necessary before choosing the best corporate form. We help your company choose the most efficient corporate and contractual forms according to your business model.
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-mr-bordo">
+            <h4 class="font-semibold text-mr-bordo mb-3">Advisory and Litigation Practice</h4>
+            <p class="text-sm text-gray-700 mb-2">
+              <strong>Advisory:</strong> We provide technical opinions on various topics, considering not only laws in force but also bills in process.
             </p>
-            <p class="text-base leading-relaxed mb-6">
-              The objective of Martins Regina Advocacia is to give security to your company so that the path to be traced is technically supported, enhancing growth and consequently the company's gains.
+            <p class="text-sm text-gray-700">
+              <strong>Litigation:</strong> We defend clients against assessments by public entities in administrative and judicial tax proceedings.
             </p>
           </div>
 
           <div>
-            <h4 class="font-semibold text-mr-bordo mb-4">What can our lawyers do for you and your company?</h4>
-            <p class="text-base leading-relaxed mb-4">
-              Our practices in Corporate Law cover all forms of companies, especially limited and closely held companies that wish to structure themselves to grow and advance in their next stages. The firm also provides services such as:
-            </p>
+            <h4 class="font-semibold text-mr-bordo mb-4">Main services offered in Tax Law:</h4>
             
             <ul class="space-y-2 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Risk assessment of chosen corporate forms</span>
+                <span>Tax Planning (lawful strategies to reduce tax burden, take advantage of incentives, choose adequate tax regime)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Business structuring</span>
+                <span>Consulting on various tax matters (clarification of tax doubts, issuance of legal opinions on interpretation of rules)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Business restructuring</span>
+                <span>Administrative and judicial tax litigation (defense in tax assessments, challenges, appeals, judicial actions)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-mr-bordo mt-1">•</span>
-                <span>Legal advice and consulting</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Adaptation of Contracts and Bylaws in the face of new legislative changes and pandemic scenario</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>M&A</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Preparation for company sale</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Consulting on due diligence in pre-acquisition and pre-sale</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Business planning and structuring</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Exchange</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Formation of groups and Associations</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Corporate and business model reorganization</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Merger, Spin-off and Incorporation</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-mr-bordo mt-1">•</span>
-                <span>Defense of shareholders' rights</span>
+                <span>Transfer Pricing (for companies engaged in intragroup international trade)</span>
               </li>
             </ul>
           </div>
@@ -3022,11 +2941,34 @@ export default function PracticeAreasSection() {
             {currentLanguage === 'PT' ? 'Áreas de Atuação' : 'Practice Areas'}
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary"></span>
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground">
+          <p className="max-w-3xl mx-auto text-muted-foreground mb-6">
             {currentLanguage === 'PT'
-              ? 'Oferecemos advocacia multidisciplinar com soluções customizadas para atender às necessidades específicas de cada cliente.'
-              : 'We offer multidisciplinary legal services with customized solutions to meet each client\'s specific needs.'}
+              ? 'Oferecemos advocacia multidisciplinar com soluções customizadas para atender às necessidades específicas de cada cliente. Nossa experiência abrange desde planejamento patrimonial e direito empresarial até causas especializadas e pro bono.'
+              : 'We offer multidisciplinary legal services with customized solutions to meet each client\'s specific needs. Our experience ranges from estate planning and corporate law to specialized and pro bono cases.'}
           </p>
+          
+          <div className="bg-gradient-to-r from-mr-bordo/10 to-blue-50 p-6 rounded-lg max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-mr-bordo mb-2">16</div>
+                <div className="text-sm text-gray-600">
+                  {currentLanguage === 'PT' ? 'Áreas de Especialização' : 'Areas of Expertise'}
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-mr-bordo mb-2">27+</div>
+                <div className="text-sm text-gray-600">
+                  {currentLanguage === 'PT' ? 'Anos de Experiência' : 'Years of Experience'}
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-mr-bordo mb-2">100%</div>
+                <div className="text-sm text-gray-600">
+                  {currentLanguage === 'PT' ? 'Êxito em Ações Pro Bono' : 'Success in Pro Bono Actions'}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
         <Tabs defaultValue="all" className="w-full">
@@ -3038,78 +2980,148 @@ export default function PracticeAreasSection() {
           </TabsList>
           
           <TabsContent value="all" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {practiceAreas.map((area) => (
-                <AreaCard key={area.id} area={area} onClick={() => openAreaDetails(area)} />
-              ))}
+            <div className="relative">
+              <div className="flex overflow-x-auto pb-4 gap-4 md:gap-6 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll px-1">
+                {practiceAreas.map((area) => (
+                  <div key={area.id} className="flex-none w-72 sm:w-80 md:w-96 snap-start">
+                    <AreaCard area={area} onClick={() => openAreaDetails(area)} />
+                  </div>
+                ))}
+              </div>
+              {/* Indicador de scroll para mobile */}
+              <div className="flex justify-center mt-4 md:hidden">
+                <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+                  ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+                </div>
+              </div>
             </div>
           </TabsContent>
           
           <TabsContent value="business" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {practiceAreas
-                .filter(area => area.category === 'business')
-                .map((area) => (
-                  <AreaCard key={area.id} area={area} onClick={() => openAreaDetails(area)} />
-                ))}
+            <div className="relative">
+              <div className="flex overflow-x-auto pb-4 gap-4 md:gap-6 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll px-1">
+                {practiceAreas
+                  .filter(area => area.category === 'business')
+                  .map((area) => (
+                    <div key={area.id} className="flex-none w-72 sm:w-80 md:w-96 snap-start">
+                      <AreaCard area={area} onClick={() => openAreaDetails(area)} />
+                    </div>
+                  ))}
+              </div>
+              {practiceAreas.filter(area => area.category === 'business').length > 1 && (
+                <div className="flex justify-center mt-4 md:hidden">
+                  <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+                    ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+                  </div>
+                </div>
+              )}
             </div>
           </TabsContent>
           
           <TabsContent value="personal" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {practiceAreas
-                .filter(area => area.category === 'personal')
-                .map((area) => (
-                  <AreaCard key={area.id} area={area} onClick={() => openAreaDetails(area)} />
-                ))}
+            <div className="relative">
+              <div className="flex overflow-x-auto pb-4 gap-4 md:gap-6 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll px-1">
+                {practiceAreas
+                  .filter(area => area.category === 'personal')
+                  .map((area) => (
+                    <div key={area.id} className="flex-none w-72 sm:w-80 md:w-96 snap-start">
+                      <AreaCard area={area} onClick={() => openAreaDetails(area)} />
+                    </div>
+                  ))}
+              </div>
+              {practiceAreas.filter(area => area.category === 'personal').length > 1 && (
+                <div className="flex justify-center mt-4 md:hidden">
+                  <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+                    ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+                  </div>
+                </div>
+              )}
             </div>
           </TabsContent>
           
           <TabsContent value="specialized" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {practiceAreas
-                .filter(area => area.category === 'specialized')
-                .map((area) => (
-                  <AreaCard key={area.id} area={area} onClick={() => openAreaDetails(area)} />
-                ))}
+            <div className="relative">
+              <div className="flex overflow-x-auto pb-4 gap-4 md:gap-6 scrollbar-hide snap-x snap-mandatory scroll-smooth-horizontal touch-scroll px-1">
+                {practiceAreas
+                  .filter(area => area.category === 'specialized')
+                  .map((area) => (
+                    <div key={area.id} className="flex-none w-72 sm:w-80 md:w-96 snap-start">
+                      <AreaCard area={area} onClick={() => openAreaDetails(area)} />
+                    </div>
+                  ))}
+              </div>
+              {practiceAreas.filter(area => area.category === 'specialized').length > 1 && (
+                <div className="flex justify-center mt-4 md:hidden">
+                  <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+                    ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
+                  </div>
+                </div>
+              )}
             </div>
           </TabsContent>
         </Tabs>
         
         {/* Area Details Dialog */}
         <Dialog open={!!selectedArea} onOpenChange={(open: boolean) => !open && setSelectedArea(null)}>
-          <DialogContent className={`${selectedArea?.detailedContent ? 'sm:max-w-4xl max-h-[80vh] overflow-y-auto' : 'sm:max-w-md'}`}>
+          <DialogContent className="sm:max-w-5xl max-h-[85vh] overflow-hidden">
             {selectedArea && (
               <>
-                <DialogHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl">{selectedArea.icon}</span>
-                    <DialogTitle className="text-xl">{currentLanguage === 'PT' ? selectedArea.title : selectedArea.titleEn}</DialogTitle>
+                <DialogHeader className="pb-4 border-b">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="bg-mr-bordo/10 p-3 rounded-xl">
+                      <span className="text-4xl">{selectedArea.icon}</span>
+                    </div>
+                    <div className="flex-1">
+                      <DialogTitle className="text-2xl md:text-3xl font-serif text-gray-900 mb-2">
+                        {currentLanguage === 'PT' ? selectedArea.title : selectedArea.titleEn}
+                      </DialogTitle>
+                      <p className="text-gray-600 text-base">
+                        {currentLanguage === 'PT' ? selectedArea.description : selectedArea.descriptionEn}
+                      </p>
+                    </div>
                   </div>
                 </DialogHeader>
-                <div className="py-4">
+                
+                <div className="py-6 overflow-y-auto max-h-[60vh]">
                   {selectedArea.detailedContent && currentLanguage === 'PT' ? (
                     <div 
+                      className="prose prose-gray max-w-none prose-headings:text-mr-bordo prose-headings:font-serif prose-a:text-mr-bordo prose-strong:text-mr-bordo prose-ul:space-y-2"
                       dangerouslySetInnerHTML={{ 
                         __html: selectedArea.detailedContent 
                       }} 
                     />
                   ) : selectedArea.detailedContentEn && currentLanguage === 'EN' ? (
                     <div 
+                      className="prose prose-gray max-w-none prose-headings:text-mr-bordo prose-headings:font-serif prose-a:text-mr-bordo prose-strong:text-mr-bordo prose-ul:space-y-2"
                       dangerouslySetInnerHTML={{ 
                         __html: selectedArea.detailedContentEn 
                       }} 
                     />
                   ) : (
-                    <p>{currentLanguage === 'PT' ? selectedArea.description : selectedArea.descriptionEn}</p>
+                    <div className="text-center py-8">
+                      <p className="text-gray-600 mb-6">{currentLanguage === 'PT' ? selectedArea.description : selectedArea.descriptionEn}</p>
+                      <div className="bg-gray-50 p-6 rounded-lg">
+                        <p className="text-sm text-gray-500">
+                          {currentLanguage === 'PT' 
+                            ? 'Entre em contato para mais informações sobre esta área de atuação.' 
+                            : 'Contact us for more information about this practice area.'}
+                        </p>
+                      </div>
+                    </div>
                   )}
                 </div>
-                <DialogFooter className="sm:justify-center">
-                  <Button asChild className="w-full sm:w-auto">
-                    <Link href="#contato">
-                      {currentLanguage === 'PT' ? 'Consultar sobre esta área' : 'Consult about this area'}
-                    </Link>
-                  </Button>
+                
+                <DialogFooter className="pt-4 border-t bg-gray-50 -mx-6 -mb-6 px-6 py-4">
+                  <div className="flex flex-col sm:flex-row gap-3 w-full">
+                    <Button variant="outline" onClick={() => setSelectedArea(null)} className="flex-1 sm:flex-none">
+                      {currentLanguage === 'PT' ? 'Fechar' : 'Close'}
+                    </Button>
+                    <Button asChild className="flex-1 sm:flex-none bg-mr-bordo hover:bg-mr-bordo/90">
+                      <Link href="#contato" onClick={() => setSelectedArea(null)}>
+                        {currentLanguage === 'PT' ? 'Agendar Consulta' : 'Schedule Consultation'}
+                      </Link>
+                    </Button>
+                  </div>
                 </DialogFooter>
               </>
             )}
@@ -3122,18 +3134,67 @@ export default function PracticeAreasSection() {
 
 function AreaCard({ area, onClick }: { area: PracticeArea; onClick: () => void }) {
   const { currentLanguage } = useLanguage();
+  
+  // Definir categorias com cores
+  const getCategoryInfo = (category: string) => {
+    switch (category) {
+      case 'business':
+        return { 
+          label: currentLanguage === 'PT' ? 'Empresarial' : 'Business', 
+          color: 'bg-blue-100 text-blue-800',
+          borderColor: 'border-l-blue-500'
+        };
+      case 'personal':
+        return { 
+          label: currentLanguage === 'PT' ? 'Pessoal' : 'Personal', 
+          color: 'bg-green-100 text-green-800',
+          borderColor: 'border-l-green-500'
+        };
+      case 'specialized':
+        return { 
+          label: currentLanguage === 'PT' ? 'Especializado' : 'Specialized', 
+          color: 'bg-purple-100 text-purple-800',
+          borderColor: 'border-l-purple-500'
+        };
+      default:
+        return { 
+          label: '', 
+          color: 'bg-gray-100 text-gray-800',
+          borderColor: 'border-l-mr-bordo'
+        };
+    }
+  };
+
+  const categoryInfo = getCategoryInfo(area.category);
+  
   return (
-    <Card 
-      className="bg-mr-bordo text-white text-center p-6 shadow-mr hover:shadow-mr-hover hover:-translate-y-1 transition-all duration-300 flex flex-col items-center h-full cursor-pointer"
-      onClick={onClick}
-    >
-      <div className="text-4xl mb-4">{area.icon}</div>
-      <h3 className="text-xl font-semibold mb-2 font-serif">
-        {currentLanguage === 'PT' ? area.title : area.titleEn}
-      </h3>
-      <p className="text-sm text-gray-200">
-        {currentLanguage === 'PT' ? area.description : area.descriptionEn}
-      </p>
+    <Card className={`h-full cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-l-4 ${categoryInfo.borderColor} bg-white hover:bg-gray-50/50 relative overflow-hidden`}>
+      <CardContent className="p-6 h-full flex flex-col relative z-10" onClick={onClick}>
+        <div className="flex items-start justify-between mb-4">
+          <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${categoryInfo.color}`}>
+            {categoryInfo.label}
+          </span>
+          <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{area.icon}</span>
+        </div>
+        
+        <h3 className="text-lg font-semibold text-foreground group-hover:text-mr-bordo transition-colors mb-3 leading-tight font-serif">
+          {currentLanguage === 'PT' ? area.title : area.titleEn}
+        </h3>
+        
+        <p className="text-muted-foreground text-sm flex-grow leading-relaxed mb-4">
+          {currentLanguage === 'PT' ? area.description : area.descriptionEn}
+        </p>
+        
+        <div className="mt-auto pt-4 border-t border-gray-100">
+          <span className="text-mr-bordo text-sm font-medium group-hover:underline flex items-center gap-1">
+            {currentLanguage === 'PT' ? 'Clique para detalhes' : 'Click for details'}
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </span>
+        </div>
+      </CardContent>
+      
+      {/* Efeito de brilho sutil no hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%] duration-700"></div>
     </Card>
   );
 }

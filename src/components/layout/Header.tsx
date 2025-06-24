@@ -82,7 +82,7 @@ export default function Header() {
   return (
     <>
       {/* Top Contact Bar - Fixed for Mobile */}
-      <div className="bg-mr-bordo text-white py-2 relative z-[55] lg:hidden">
+      <div className="hidden">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-4">

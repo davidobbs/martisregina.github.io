@@ -11,6 +11,17 @@ export default function HeroSection() {
     setMounted(true);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
   const title = currentLanguage === 'PT'
     ? 'Advogados especialistas em Planejamento Patrimonial, Negócios e Contratos'
     : 'Lawyers specializing in Asset Planning, Business, and Contracts';
@@ -73,7 +84,7 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-mr-bordo/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+            <button onClick={() => scrollToSection('contato')} className="group bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-mr-bordo/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
               <span className="flex items-center gap-3">
                 {currentLanguage === 'PT' ? 'Agende sua consulta' : 'Schedule consultation'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +93,7 @@ export default function HeroSection() {
               </span>
             </button>
             
-            <button className="group bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+            <button onClick={() => scrollToSection('escritorio')} className="group bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
               <span className="flex items-center gap-3">
                 {currentLanguage === 'PT' ? 'Conheça nosso escritório' : 'Learn about our firm'}
                 <svg className="w-5 h-5 group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +104,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-mr-bordo mb-2">30+</div>
               <div className="text-white/70 text-sm uppercase tracking-wider">

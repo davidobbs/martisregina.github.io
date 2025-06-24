@@ -5,6 +5,7 @@ Este diretório contém as imagens dos sócios do escritório.
 ## Arquivos Atuais:
 
 - `regina-martins.jpg` - Foto da Dr. Regina Martins (Placeholder)
+- `pedro-deregina.jpg` - Foto do Dr. Pedro DeRegina (Placeholder)
 - `carlos-silva.jpg` - Foto do Dr. Carlos Silva (Placeholder)
 - `ana-santos.jpg` - Foto da Dra. Ana Santos (Placeholder)
 - `joao-oliveira.jpg` - Foto do Dr. João Oliveira (Placeholder)

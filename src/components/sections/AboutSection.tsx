@@ -29,6 +29,16 @@ export default function AboutSection() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerHeight = 80;
+      const position = el.getBoundingClientRect().top;
+      const offset = position + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="escritorio" className="relative overflow-hidden py-20 bg-white">
       {/* Decorative Background Shapes */}
@@ -72,7 +82,8 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <button className="mt-6 inline-flex items-center gap-3 bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-transform duration-300 transform hover:scale-105">
+          <button className="mt-6 inline-flex items-center gap-3 bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-transform duration-300 transform hover:scale-105"
+            onClick={() => scrollToSection('areas')}>
             {currentLanguage === 'PT' ? 'Conheça mais' : 'Learn more'}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -81,7 +92,7 @@ export default function AboutSection() {
         </div>
 
         {/* Statistics */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-6 w-full">
           <StatCard number="1994" text={currentLanguage === 'PT' ? 'Ano de fundação' : 'Year of Establishment'} icon="🏛️" delay={mounted && inView ? 0 : undefined} mounted={mounted} inView={inView} />
           <StatCard number="14" text={currentLanguage === 'PT' ? 'Escritórios no Brasil e exterior' : 'Offices in Brazil and Abroad'} icon="🌍" delay={mounted && inView ? 100 : undefined} mounted={mounted} inView={inView} />
           <StatCard number="16" text={currentLanguage === 'PT' ? 'Áreas de atuação' : 'Practice Areas'} icon="⚖️" delay={mounted && inView ? 200 : undefined} mounted={mounted} inView={inView} />
