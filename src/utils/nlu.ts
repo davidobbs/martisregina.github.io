@@ -1,4 +1,15 @@
-import { normalizeText } from './nlp';
+/**
+ * Normaliza texto removendo acentos, convertendo para minúsculas e removendo caracteres especiais
+ */
+export function normalizeText(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .replace(/[^a-z0-9\s]/g, '') // Remove caracteres especiais
+    .replace(/\s+/g, ' ') // Múltiplos espaços para um só
+    .trim();
+}
 
 export interface Entity {
   type: string;

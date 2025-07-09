@@ -16,8 +16,7 @@ export default function ContactSection() {
     name: '',
     email: '',
     phone: '',
-    message: '',
-    subscribe: false
+    message: ''
   });
 
   useEffect(() => {
@@ -41,10 +40,7 @@ export default function ContactSection() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: checked }));
-  };
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,35 +50,35 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-50">
+    <section id="contato" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-mr-black to-mr-bordo">
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-0 left-0 w-full h-full bg-gray-100"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center mb-20 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-flex items-center gap-2 bg-mr-bordo/8 rounded-full px-6 py-2 mb-8 border border-mr-bordo/15">
-            <div className="w-2 h-2 bg-mr-bordo rounded-full animate-pulse"></div>
-            <span className="text-mr-bordo text-sm font-medium tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-6 py-2 mb-8 border border-white/20">
+            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <span className="text-white text-sm font-medium tracking-wider uppercase">
               {currentLanguage === 'PT' ? 'Fale Conosco' : 'Contact Us'}
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
             {currentLanguage === 'PT' ? (
               <>
-                <span className="block text-gray-700">Vamos</span>
-                <span className="text-mr-bordo">Conversar?</span>
+                <span className="block text-white/90">Vamos</span>
+                <span className="text-mr-gold">Conversar?</span>
               </>
             ) : (
               <>
-                <span className="block text-gray-700">Let's</span>
-                <span className="text-mr-bordo">Connect?</span>
+                <span className="block text-white/90">Let's</span>
+                <span className="text-mr-gold">Connect?</span>
               </>
             )}
           </h2>
 
-          <p className="max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed font-light">
+          <p className="max-w-2xl mx-auto text-xl text-white/90 leading-relaxed font-light">
             {currentLanguage === 'PT'
               ? 'Estamos prontos para ouvir você. Entre em contato e descubra como podemos ajudar com suas necessidades jurídicas.'
               : 'We are ready to listen to you. Get in touch and discover how we can help with your legal needs.'}
@@ -174,32 +170,7 @@ export default function ContactSection() {
                         </div>
                       </div>
 
-                      <div className="mb-8">
-                        <div className="flex items-start space-x-4 p-4 bg-gray-50/80 rounded-xl border border-gray-100">
-                          <div className="flex items-center h-6">
-                            <Input
-                              id="subscribe"
-                              name="subscribe"
-                              type="checkbox"
-                              checked={formData.subscribe}
-                              onChange={handleCheckboxChange}
-                              className="h-5 w-5 text-mr-bordo border-2 border-gray-300 rounded focus:ring-mr-bordo/20 focus:ring-2 transition-all accent-mr-bordo checked:bg-mr-bordo checked:border-mr-bordo hover:border-mr-bordo/50"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <Label htmlFor="subscribe" className="text-sm font-medium text-gray-700 cursor-pointer leading-relaxed">
-                              {currentLanguage === 'PT'
-                                ? 'Quero receber insights jurídicos exclusivos e novidades do escritório por e-mail'
-                                : 'I want to receive exclusive legal insights and firm updates via email'}
-                            </Label>
-                            <p className="text-xs text-gray-500 mt-1">
-                              {currentLanguage === 'PT'
-                                ? 'Você pode cancelar a qualquer momento'
-                                : 'You can unsubscribe at any time'}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+
                       
                       <div className="text-center">
                         <Button 

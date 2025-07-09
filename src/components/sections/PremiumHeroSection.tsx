@@ -74,7 +74,7 @@ export default function PremiumHeroSection() {
       const element = document.getElementById(sectionId);
       if (element) {
         // Log para debug
-        console.log(`Navegando para seção: ${sectionId}`);
+
         
         // Offset ajustado para barra de credibilidade + header
         const headerHeight = buttonType === 'contact' ? 100 : 120;

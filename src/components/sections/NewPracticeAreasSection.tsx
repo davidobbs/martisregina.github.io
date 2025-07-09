@@ -627,15 +627,15 @@ export default function NewPracticeAreasSection() {
   };
 
   return (
-    <section id="areas" className="py-20 bg-gradient-to-br from-white to-gray-50">
+    <section id="areas" className="py-20 bg-gradient-to-br from-mr-black to-mr-bordo">
       <div className="container mx-auto px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
             {content.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             {content.subtitle}
           </p>
         </div>
@@ -783,7 +783,7 @@ export default function NewPracticeAreasSection() {
             
             {/* Scroll Indicator */}
             <div className="flex justify-center mt-4">
-              <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+              <div className="text-xs text-white/70 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full">
                 ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
               </div>
             </div>
@@ -792,7 +792,7 @@ export default function NewPracticeAreasSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button onClick={() => scrollToSection('contato')} className="bg-gradient-to-r from-mr-bordo to-red-700 hover:from-red-700 hover:to-mr-bordo text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <button onClick={() => scrollToSection('contato')} className="bg-white text-mr-bordo hover:bg-mr-gold hover:text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
             {currentLanguage === 'PT' ? 'Solicite uma consulta especializada' : 'Request specialized consultation'}
           </button>
         </div>

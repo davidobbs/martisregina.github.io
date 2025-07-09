@@ -104,9 +104,9 @@ export default function EnhancedCredibilityBar({
       case 'dark':
         return 'bg-gray-900 text-white border-gray-700';
       case 'gradient':
-        return 'bg-gradient-to-r from-mr-blue via-mr-bordo to-mr-blue text-white border-transparent';
+        return 'bg-gradient-to-r from-mr-gold via-mr-bordo to-mr-gold text-white border-transparent';
       default:
-        return 'bg-mr-blue text-white border-mr-blue/20';
+        return 'bg-mr-gold text-white border-mr-gold/20';
     }
   };
 

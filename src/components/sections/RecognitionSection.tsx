@@ -6,14 +6,14 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function RecognitionSection() {
   const { currentLanguage } = useLanguage();
   return (
-    <section id="reconhecimentos" className="py-16 md:py-24">
+    <section id="reconhecimentos" className="py-16 md:py-24 bg-gradient-to-br from-mr-black to-mr-bordo">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 relative inline-block">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 relative inline-block text-white">
             {currentLanguage === 'PT' ? 'Reconhecimentos' : 'Recognitions'}
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary"></span>
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-mr-gold"></span>
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground">
+          <p className="max-w-2xl mx-auto text-white/90">
             {currentLanguage === 'PT'
               ? 'Nosso compromisso com a excelência é reconhecido por clientes e pelo mercado jurídico.'
               : 'Our commitment to excellence is recognized by clients and the legal market.'}
@@ -45,7 +45,7 @@ export default function RecognitionSection() {
           
           {/* Indicador de scroll para mobile */}
           <div className="flex justify-center mt-4 md:hidden">
-            <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full scroll-indicator">
+            <div className="text-xs text-white/70 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full scroll-indicator">
               ← {currentLanguage === 'PT' ? 'Deslize para ver mais' : 'Swipe to see more'} →
             </div>
           </div>
@@ -57,11 +57,11 @@ export default function RecognitionSection() {
 
 function RecognitionCard({ title, description, date }: { title: string; description: string; date: string }) {
   return (
-    <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
+    <Card className="bg-white shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
       <CardContent className="p-6 flex flex-col h-full">
-        <h3 className="text-xl font-serif font-semibold mb-4">{title}</h3>
-        <p className="text-muted-foreground flex-grow">{description}</p>
-        <div className="text-sm text-muted-foreground mt-4">Publicado em {date}</div>
+        <h3 className="text-xl font-serif font-semibold mb-4 text-gray-900">{title}</h3>
+        <p className="text-gray-600 flex-grow leading-relaxed">{description}</p>
+        <div className="text-sm text-gray-500 mt-4 font-medium">Publicado em {date}</div>
       </CardContent>
     </Card>
   );
