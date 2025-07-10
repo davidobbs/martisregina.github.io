@@ -70,6 +70,102 @@
   --mr-bordo: #8B0000;
 }
 
+/* ========================================
+   SISTEMA DE CORES AUTOMÁTICO - FUNDO VERMELHO = TEXTO BRANCO
+   ======================================== */
+
+/* Classe automática para fundos vermelhos com texto branco */
+.bg-red-auto {
+  background-color: var(--mr-bordo);
+  color: white !important;
+}
+
+.bg-red-auto * {
+  color: white !important;
+}
+
+/* Versões específicas para diferentes tons de vermelho */
+.bg-mr-bordo {
+  background-color: var(--mr-bordo);
+  color: white !important;
+}
+
+.bg-mr-bordo * {
+  color: white !important;
+}
+
+/* Para elementos que usam bg-primary (que é vermelho) */
+.bg-primary {
+  color: white !important;
+}
+
+.bg-primary * {
+  color: white !important;
+}
+
+/* Para classes de hover que mudam para vermelho */
+.hover\:bg-mr-bordo:hover {
+  color: white !important;
+}
+
+.hover\:bg-mr-bordo:hover * {
+  color: white !important;
+}
+
+/* Para badges e elementos pequenos com fundo vermelho */
+.bg-red-600,
+.bg-red-700,
+.bg-red-800,
+.bg-red-900 {
+  color: white !important;
+}
+
+.bg-red-600 *,
+.bg-red-700 *,
+.bg-red-800 *,
+.bg-red-900 * {
+  color: white !important;
+}
+
+/* Classe utilitária para garantir contraste em fundos vermelhos */
+.red-bg-white-text {
+  background-color: var(--mr-bordo);
+  color: white !important;
+}
+
+.red-bg-white-text * {
+  color: white !important;
+}
+
+/* Classe para elementos que devem manter cor original mesmo em fundo vermelho */
+.preserve-text-color,
+.preserve-text-color * {
+  color: inherit !important;
+}
+
+/* Classes específicas para os tons de vermelho usados no site */
+[class*="bg-mr-bordo"]:not([class*="bg-mr-bordo/"]) {
+  color: white !important;
+}
+
+[class*="bg-mr-bordo"]:not([class*="bg-mr-bordo/"]) * {
+  color: white !important;
+}
+
+/* Para elementos com fundo vermelho em hover */
+.group:hover [class*="hover:bg-mr-bordo"] {
+  color: white !important;
+}
+
+/* Classe de override para casos específicos onde o texto deve ser escuro */
+.force-dark-text {
+  color: var(--mr-black) !important;
+}
+
+.force-dark-text * {
+  color: var(--mr-black) !important;
+}
+
 /* Importação de estilos personalizados */
 
 /* Estilos globais */

@@ -58,6 +58,11 @@ module.exports = {
         'mr-black': '#1A1A1A',
         'mr-blue': '#1a2b4a',     // Azul marinho corporativo
         'mr-gold': '#c9a961',     // Dourado elegante
+        // Cores automáticas para contraste
+        'auto-red': {
+          DEFAULT: '#8B0000',
+          text: '#FFFFFF',
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
