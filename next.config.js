@@ -113,7 +113,7 @@ const nextConfig = {
   },
   
   // Configurações de output para produção
-  output: 'standalone',
+  output: 'export',
   
   // Configurações de webpack para otimização
   webpack: (config, { isServer }) => {
