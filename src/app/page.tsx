@@ -5,6 +5,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import NewPracticeAreasSection from '@/components/sections/NewPracticeAreasSection';
 import AwardsCarouselSection from '@/components/sections/AwardsCarouselSection';
 import RecognitionSection from '@/components/sections/RecognitionSection';
+import PartnersSection from '@/components/sections/PartnersSection';
 import ArticlesSection from '@/components/sections/ArticlesSection';
 import GlobalPresenceSection from '@/components/sections/GlobalPresenceSection';
 import ContactSection from '@/components/sections/ContactSection';
@@ -38,13 +39,16 @@ export default function Home() {
       {/* 4. Reconhecimentos - Recognition Section */}
       <RecognitionSection />
       
-      {/* 5. Artigos - Articles/Blog Section */}
+      {/* 5. Sócios - Partners Section */}
+      <PartnersSection />
+      
+      {/* 6. Artigos - Articles/Blog Section */}
       <ArticlesSection />
       
-      {/* 6. Onde Estamos - Global Presence with Interactive Map */}
+      {/* 7. Onde Estamos - Global Presence with Interactive Map */}
       <GlobalPresenceSection />
       
-      {/* 7. Contato - Contact Section */}
+      {/* 8. Contato - Contact Section */}
       <ContactSection />
       
       {/* Footer */}

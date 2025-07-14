@@ -896,3 +896,237 @@ html {
     color: #f9fafb;
   }
 }
+
+/* Partners Section Enhancements */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced Card Animations */
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 69, 19, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(139, 69, 19, 0.5); }
+}
+
+.partner-card {
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+.partner-card:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.partner-card:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.partner-card:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.partner-card:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.glow-on-hover:hover {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced Scrollbar for Modal */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Enhanced Button Animations */
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-enhanced:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Shadow Utilities */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom Gradient Backgrounds */
+.bg-gradient-elegant {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+}
+
+/* Enhanced Typography */
+.text-gradient {
+  background: linear-gradient(135deg, #8b4513 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .partner-card {
+    animation: none;
+  }
+}
+
+/* Focus and Accessibility Improvements */
+.partner-card:focus-visible {
+  outline: 2px solid #8b4513;
+  outline-offset: 4px;
+}
+
+.btn-enhanced:focus-visible {
+  outline: 2px solid #8b4513;
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced Modal Backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom Border Animations */
+@keyframes border-flow {
+  0%, 100% { 
+    border-image: linear-gradient(90deg, #8b4513, #d4af37, #8b4513) 1;
+  }
+  50% { 
+    border-image: linear-gradient(90deg, #d4af37, #8b4513, #d4af37) 1;
+  }
+}
+
+.border-animated {
+  border: 2px solid;
+  animation: border-flow 3s ease-in-out infinite;
+}
+
+/* Estilos para conteúdo de artigos */
+.article-content {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.article-content h2 {
+  @apply text-2xl font-bold text-gray-900 mb-4 mt-6 first:mt-0;
+}
+
+.article-content h3 {
+  @apply text-xl font-semibold text-gray-800 mb-3 mt-5;
+}
+
+.article-content h4 {
+  @apply text-lg font-medium text-gray-800 mb-2 mt-4;
+}
+
+.article-content p {
+  @apply mb-4 text-gray-700 leading-relaxed;
+}
+
+.article-content ul {
+  @apply mb-4 pl-6 space-y-2;
+}
+
+.article-content li {
+  @apply text-gray-700 relative;
+}
+
+.article-content li::before {
+  content: "•";
+  @apply absolute -left-4 text-mr-bordo font-bold;
+}
+
+.article-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+.article-content em {
+  @apply italic;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-mr-bordo pl-4 italic text-gray-600 my-4;
+}
+
+.article-content code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.article-content pre {
+  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-4;
+}
+
+.article-content a {
+  @apply text-mr-bordo hover:text-mr-gold underline transition-colors;
+}

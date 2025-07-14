@@ -19,6 +19,40 @@ export default function ContactSection() {
     message: ''
   });
 
+  const content = currentLanguage === 'PT' ? {
+    phoneRJ: 'Telefone RJ',
+    phoneSP: 'Telefone SP',
+    email: 'E-mail',
+    responseTime: 'Resposta em até 24h',
+    fullName: 'Nome Completo',
+    emailLabel: 'E-mail',
+    phone: 'Telefone',
+    message: 'Mensagem',
+    emailPlaceholder: 'seu@email.com',
+    phonePlaceholder: '(11) 99999-9999',
+    messagePlaceholder: 'Conte-nos como podemos ajudar...',
+    sendMessage: 'Enviar Mensagem',
+    messageSent: 'Mensagem Enviada!',
+    thankYou: 'Obrigado pela sua mensagem! Nossa equipe entrará em contato em breve.',
+    sendNew: 'Enviar Nova Mensagem'
+  } : {
+    phoneRJ: 'Phone RJ',
+    phoneSP: 'Phone SP',
+    email: 'Email',
+    responseTime: 'Response within 24h',
+    fullName: 'Full Name',
+    emailLabel: 'Email',
+    phone: 'Phone',
+    message: 'Message',
+    emailPlaceholder: 'your@email.com',
+    phonePlaceholder: '+1 (555) 123-4567',
+    messagePlaceholder: 'Tell us how we can help...',
+    sendMessage: 'Send Message',
+    messageSent: 'Message Sent!',
+    thankYou: 'Thank you for your message! Our team will get back to you soon.',
+    sendNew: 'Send New Message'
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -96,7 +130,7 @@ export default function ContactSection() {
                       <div className="space-y-6 mb-8">
                         <div className="group">
                           <Label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
-                            {currentLanguage === 'PT' ? 'Nome Completo' : 'Full Name'}
+                            {content.fullName}
                           </Label>
                           <div className="relative">
                             <Input 
@@ -114,14 +148,14 @@ export default function ContactSection() {
 
                         <div className="group">
                           <Label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
-                            {currentLanguage === 'PT' ? 'E-mail' : 'Email'}
+                            {content.emailLabel}
                           </Label>
                           <div className="relative">
                             <Input 
                               id="email" 
                               name="email" 
                               type="email" 
-                              placeholder={currentLanguage === 'PT' ? 'seu@email.com' : 'your@email.com'} 
+                              placeholder={content.emailPlaceholder} 
                               required 
                               value={formData.email}
                               onChange={handleChange}
@@ -133,7 +167,7 @@ export default function ContactSection() {
 
                         <div className="group">
                           <Label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
-                            {currentLanguage === 'PT' ? 'Telefone' : 'Phone'}
+                            {content.phone}
                           </Label>
                           <div className="relative">
                             <Input 
@@ -152,13 +186,13 @@ export default function ContactSection() {
                       <div className="space-y-6">
                         <div className="group h-full">
                           <Label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-mr-bordo transition-colors">
-                            {currentLanguage === 'PT' ? 'Mensagem' : 'Message'}
+                            {content.message}
                           </Label>
                           <div className="relative h-full">
                             <Textarea 
                               id="message" 
                               name="message" 
-                              placeholder={currentLanguage === 'PT' ? 'Conte-nos como podemos ajudar você...' : 'Tell us how we can help you...'} 
+                                                              placeholder={content.messagePlaceholder} 
                               rows={6} 
                               required 
                               value={formData.message}
@@ -179,7 +213,7 @@ export default function ContactSection() {
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-mr-bordo to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                           <span className="relative flex items-center justify-center gap-3 text-lg">
-                            {currentLanguage === 'PT' ? 'Enviar Mensagem' : 'Send Message'}
+                            {content.sendMessage}
                             <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
@@ -195,19 +229,17 @@ export default function ContactSection() {
                         </svg>
                       </div>
                       <h3 className="text-3xl font-serif font-bold text-gray-900 mb-4">
-                        {currentLanguage === 'PT' ? 'Mensagem Enviada!' : 'Message Sent!'}
+                        {content.messageSent}
                       </h3>
                       <p className="text-lg text-gray-600 leading-relaxed max-w-md mx-auto">
-                        {currentLanguage === 'PT'
-                          ? 'Obrigado pelo seu contato! Nossa equipe entrará em contato em breve.'
-                          : 'Thank you for your message! Our team will get back to you soon.'}
+                        {content.thankYou}
                       </p>
                       <div className="mt-8">
                         <Button 
                           onClick={() => setFormSubmitted(false)}
                           className="px-8 py-3 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-xl transition-colors"
                         >
-                          {currentLanguage === 'PT' ? 'Enviar Nova Mensagem' : 'Send New Message'}
+                          {content.sendNew}
                         </Button>
                       </div>
                     </div>
@@ -267,7 +299,7 @@ export default function ContactSection() {
                       <PhoneIcon className="w-6 h-6 text-mr-bordo" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Telefone RJ</p>
+                      <p className="font-semibold text-gray-900">{content.phoneRJ}</p>
                       <p className="text-mr-bordo font-medium">+55 21 2532-7311</p>
                       <p className="text-xs text-gray-500">Rio de Janeiro/RJ</p>
                     </div>
@@ -279,7 +311,7 @@ export default function ContactSection() {
                       <PhoneIcon className="w-6 h-6 text-mr-bordo" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Telefone SP</p>
+                      <p className="font-semibold text-gray-900">{content.phoneSP}</p>
                       <p className="text-mr-bordo font-medium">+55 11 5504-1962</p>
                       <p className="text-xs text-gray-500">São Paulo/SP</p>
                     </div>
@@ -294,10 +326,10 @@ export default function ContactSection() {
                       <EmailIcon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">E-mail</p>
+                      <p className="font-semibold text-gray-900">{content.email}</p>
                       <p className="text-blue-600 font-medium">contato@martinsregina.com</p>
                       <p className="text-xs text-gray-500">
-                        {currentLanguage === 'PT' ? 'Resposta em até 24h' : 'Response within 24h'}
+                        {content.responseTime}
                       </p>
                     </div>
                   </a>

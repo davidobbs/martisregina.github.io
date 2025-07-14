@@ -15,7 +15,10 @@ const nextConfig = {
   // Otimizações de performance
   swcMinify: true,
   
-  // Configurações de headers
+  // Configurações de compressão
+  compress: true,
+  
+  // Configurações de headers otimizadas para SEO
   async headers() {
     return [
       {
@@ -33,6 +36,18 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
         ],
       },
       {
@@ -44,12 +59,74 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
     ];
   },
   
-  // Configurações experimentais (removidas as que causam problema)
+  // Configurações de redirect para SEO
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
+  
+  // Configurações experimentais otimizadas
   experimental: {
     scrollRestoration: true,
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react'],
+  },
+  
+  // Configurações de output para produção
+  output: 'standalone',
+  
+  // Configurações de webpack para otimização
+  webpack: (config, { isServer }) => {
+    // Otimizações para produção
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    
+    return config;
   },
 };
 

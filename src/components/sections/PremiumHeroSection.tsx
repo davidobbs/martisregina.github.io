@@ -67,36 +67,26 @@ export default function PremiumHeroSection() {
     }, 30);
   };
 
-  const scrollToSection = async (sectionId: string, buttonType: 'contact' | 'about') => {
-    setIsLoading(prev => ({ ...prev, [buttonType]: true }));
+  const scrollToSection = (sectionId: string, loadingKey: string) => {
+    setIsLoading(prev => ({ ...prev, [loadingKey]: true }));
     
-    try {
+    setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
-        // Log para debug
-
-        
-        // Offset ajustado para barra de credibilidade + header
-        const headerHeight = buttonType === 'contact' ? 100 : 120;
+        const headerHeight = 120;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
+        
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
         });
-
-        // Feedback visual mais rápido para contato
-        const delay = buttonType === 'contact' ? 600 : 800;
-        await new Promise(resolve => setTimeout(resolve, delay));
-      } else {
-        console.warn(`Seção '${sectionId}' não encontrada`);
       }
-    } catch (error) {
-      console.error('Erro ao navegar para seção:', error);
-    } finally {
-      setIsLoading(prev => ({ ...prev, [buttonType]: false }));
-    }
+      
+      setTimeout(() => {
+        setIsLoading(prev => ({ ...prev, [loadingKey]: false }));
+      }, 1000);
+    }, 300);
   };
 
   const formatNumber = (num: number) => {
@@ -182,7 +172,7 @@ export default function PremiumHeroSection() {
             )}
           </button>
           <button
-            onClick={() => scrollToSection('about', 'about')}
+            onClick={() => scrollToSection('socios', 'about')}
             disabled={isLoading.about}
             className="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-mr-bordo transition-colors duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
           >

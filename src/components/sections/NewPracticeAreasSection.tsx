@@ -441,38 +441,38 @@ export default function NewPracticeAreasSection() {
           icon: '🔒'
         },
         {
-          id: 'direito-do-consumidor',
-          title: 'Direito do Consumidor',
-          description: 'Proteção dos direitos dos consumidores em disputas judiciais e administrativas.',
-          features: ['Ações Individuais', 'Ações Coletivas', 'Defesas PROCON'],
+          id: 'consumer-law',
+          title: 'Consumer Law',
+          description: 'Protection of consumer rights in judicial and administrative disputes.',
+          features: ['Individual Actions', 'Class Actions', 'PROCON Defenses'],
           icon: '🛒'
         },
         {
-          id: 'direito-desportivo',
-          title: 'Direito Desportivo',
-          description: 'Assessoria jurídica para entidades e atletas no âmbito esportivo.',
-          features: ['Contratos de Atletas', 'Direitos de Imagem'],
+          id: 'sports-law',
+          title: 'Sports Law',
+          description: 'Legal advisory for entities and athletes in the sports field.',
+          features: ['Athlete Contracts', 'Image Rights'],
           icon: '🏅'
         },
         {
-          id: 'direito-constitucional',
-          title: 'Direito Constitucional',
-          description: 'Defesa de direitos fundamentais e controle de constitucionalidade.',
-          features: ['Mandado de Segurança', 'Ações Diretas de Inconstitucionalidade'],
+          id: 'constitutional-law',
+          title: 'Constitutional Law',
+          description: 'Defense of fundamental rights and constitutionality control.',
+          features: ['Writ of Mandamus', 'Direct Actions of Unconstitutionality'],
           icon: '🗳️'
         },
         {
-          id: 'contencioso',
-          title: 'Contencioso',
-          description: 'Atuação em processos judiciais e administrativos em diversas áreas.',
-          features: ['Litígios Cíveis', 'Litígios Trabalhistas', 'Litígios Tributários'],
+          id: 'litigation',
+          title: 'Litigation',
+          description: 'Acting in judicial and administrative proceedings in various areas.',
+          features: ['Civil Litigation', 'Labor Litigation', 'Tax Litigation'],
           icon: '⚖️'
         },
         {
           id: 'pro-bono',
           title: 'Pro Bono',
-          description: 'Atendimento jurídico gratuito a causas de interesse social.',
-          features: ['Assessoria Comunitária', 'Defesa de Direitos Humanos'],
+          description: 'Free legal assistance for causes of social interest.',
+          features: ['Community Advisory', 'Human Rights Defense'],
           icon: '🤝'
         }
       ],
@@ -603,23 +603,23 @@ export default function NewPracticeAreasSection() {
         },
         {
           id: 'life-sciences',
-          title: 'Direito Médico, da Saúde e Life Sciences',
-          description: 'Assessoria jurídica especializada para o setor de ciências da vida e saúde.',
-          features: ['Regulatório', 'Contratos de Pesquisa', 'Compliance Farmacêutico'],
+          title: 'Medical, Health and Life Sciences Law',
+          description: 'Specialized legal advisory for the life sciences and health sector.',
+          features: ['Regulatory', 'Research Contracts', 'Pharmaceutical Compliance'],
           icon: '⚕️'
         },
         {
           id: 'compliance',
           title: 'Compliance',
-          description: 'Programas de compliance e governança corporativa.',
-          features: ['Programas Anticorrupção', 'Due Diligence', 'Treinamentos'],
+          description: 'Compliance programs and corporate governance.',
+          features: ['Anti-corruption Programs', 'Due Diligence', 'Training'],
           icon: '✅'
         },
         {
-          id: 'contencioso-empresarial',
-          title: 'Contencioso Empresarial',
-          description: 'Defesa em litígios empresariais e arbitragem.',
-          features: ['Arbitragem', 'Litígios Comerciais'],
+          id: 'corporate-litigation',
+          title: 'Corporate Litigation',
+          description: 'Defense in corporate litigation and arbitration.',
+          features: ['Arbitration', 'Commercial Disputes'],
           icon: '⚖️'
         }
       ]
