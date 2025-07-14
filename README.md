@@ -1,5 +1,14 @@
 # Martins Regina Advocacia - Site Reformulado
 
+## 🚀 Primeiros Passos
+Para iniciar o repositório localmente, siga os passos:
+```bash
+git clone https://github.com/davidobbs/martisregina.github.io.git
+cd martisregina.github.io
+npm install
+npm run dev
+```
+
 ## 🎯 Visão Geral
 
 Site moderno e responsivo para o escritório de advocacia Martins Regina, desenvolvido com Next.js 13, TypeScript e Tailwind CSS. O projeto foi reformulado baseado em referências de sites de escritórios de advocacia de renome internacional.
