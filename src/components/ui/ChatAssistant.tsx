@@ -416,19 +416,6 @@ export default function ChatAssistant() {
   const handleCloseSuggestions = () => {
     setProactiveSuggestions([]);
   };
-  // Função para reiniciar a conversa e limpar histórico
-  const handleReset = () => {
-    // Limpar armazenamento local de conversas e usuário
-    localStorage.removeItem('mra_chat_conversations');
-    localStorage.removeItem('mra_chat_user_id');
-    // Gerar novo ID e resetar estado
-    const newId = ConversationStorage.generateUserId();
-    setUserId(newId);
-    setContext(null);
-    setMessages([]);
-    setShowWelcomeBack(false);
-    setProactiveSuggestions([]);
-  };
 
   // Mensagem inicial
   useEffect(() => {
@@ -547,25 +534,14 @@ export default function ChatAssistant() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={handleReset}
-                className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
-                title="Reiniciar conversa"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h5M20 20v-5h-5M4 9a9 9 0 018-8v8h-8zm16 6a9 9 0 00-8 8v-8h8z" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
-              >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
           {/* Messages */}
