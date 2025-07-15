@@ -109,7 +109,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react'],
   },
   
   // Configurações de output para produção
